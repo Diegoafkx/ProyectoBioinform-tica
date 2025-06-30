@@ -25,7 +25,6 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
     private File Archivo;
     private FileReader Texto;
     private BufferedReader lector;
-    private Lista Cadena_ADN;
     /**
      * Creates new form Busqueda_Archivo
      */
@@ -48,6 +47,8 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         Siguiente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,6 +80,7 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
@@ -101,7 +103,7 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
 
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         // TODO add your handling code here:
-        Cadena_ADN = new Lista();
+        String cadena =  "";
         if (getDireccion.getText().equals("")){
             getDireccion.setText("Error. No se a seleccionado el archivo diccionario");
         }else{
@@ -115,19 +117,23 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
             }    
                     
             lector = new BufferedReader(Texto);
-            String cadena;
+            String x;
+            
             try {
-                while ((cadena = lector.readLine())!= null){
-                    Cadena_ADN.Insertar(cadena);
-                }                
+                while ((x = lector.readLine())!= null){
+                    cadena = cadena+x;
+                }
+                
             } catch (IOException ex) {
                 System.getLogger(Busqueda_Archivo.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
-            
+            this.setVisible(false);
+            Ventana1 v1 = new Ventana1(cadena);
             }
+            
         }
 
-            this.setVisible(false);
+            
     }//GEN-LAST:event_SiguienteActionPerformed
 
     private void getDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getDireccionActionPerformed

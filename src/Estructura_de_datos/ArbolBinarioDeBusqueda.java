@@ -4,7 +4,6 @@
  */
 package Estructura_de_datos;
 
-import Estructura_de_datos.Nodo;
 
 /**
  *
@@ -50,13 +49,13 @@ public class ArbolBinarioDeBusqueda {
             size++; 
             return nuevoNodo;
         }
-        int comparacionFrecuencia = nuevoNodo.getData().getFrecuencia() - actual.getData().getFrecuencia();
+        int comparacionFrecuencia = ((patronADN) nuevoNodo.getData()).getFrecuencia() -((patronADN) actual.getData()).getFrecuencia();
         if (comparacionFrecuencia < 0) {
         actual.setIzq(insertarRecursivo(actual.getIzq(), nuevoNodo));
         } else if (comparacionFrecuencia > 0) {
             actual.setDer(insertarRecursivo(actual.getDer(), nuevoNodo));
         } else {
-            int comparacionTriplete = nuevoNodo.getData().getTriplete().compareTo(actual.getData().getTriplete());
+            int comparacionTriplete = ((patronADN) nuevoNodo.getData()).getTriplete().compareTo(  ((patronADN) actual.getData()).getTriplete());
             if (comparacionTriplete < 0) {
                 actual.setIzq(insertarRecursivo(actual.getIzq(), nuevoNodo));
             } else if (comparacionTriplete > 0) {
@@ -82,19 +81,19 @@ public class ArbolBinarioDeBusqueda {
         if (actual == null) {
             return null; 
         }
-        int comparacionFrecuencia = frecuencia - actual.getData().getFrecuencia();
+        int comparacionFrecuencia = frecuencia - ((patronADN) actual.getData()).getFrecuencia();
         if (comparacionFrecuencia < 0) {
             return buscarRecursivo(actual.getIzq(), triplete, frecuencia);
         } else if (comparacionFrecuencia > 0) {
             return buscarRecursivo(actual.getDer(), triplete, frecuencia);
         } else {
-            int comparacionTriplete = triplete.compareTo(actual.getData().getTriplete());
+            int comparacionTriplete = triplete.compareTo(((patronADN) actual.getData()).getTriplete());
             if (comparacionTriplete < 0) {
                 return buscarRecursivo(actual.getIzq(), triplete, frecuencia);
             } else if (comparacionTriplete > 0) {
                 return buscarRecursivo(actual.getDer(), triplete, frecuencia);
             } else {
-                return actual.getData(); 
+                return (patronADN) actual.getData(); 
             }
         }
     }
@@ -105,7 +104,7 @@ public class ArbolBinarioDeBusqueda {
      */
     public patronADN patronMasFrecuente() {
         if (root == null) return null;
-        return encontrarMaximo(root).getData();
+        return (patronADN) encontrarMaximo(root).getData();
     }
 
     /**
@@ -114,7 +113,7 @@ public class ArbolBinarioDeBusqueda {
      */
     public patronADN patronMenosFrecuente() {
         if (root == null) return null;
-        return encontrarMinimo(root).getData();
+        return (patronADN) encontrarMinimo(root).getData();
     }
 
     /**
@@ -180,7 +179,7 @@ public class ArbolBinarioDeBusqueda {
             return null; 
         }
 
-        int comparacionFrecuencia = frecuencia - actual.getData().getFrecuencia();
+        int comparacionFrecuencia = frecuencia - ((patronADN) actual.getData()).getFrecuencia();
         
         if (comparacionFrecuencia < 0) { 
             actual.setIzq(eliminarRecursivo(actual.getIzq(), triplete, frecuencia));
@@ -189,7 +188,7 @@ public class ArbolBinarioDeBusqueda {
             actual.setDer(eliminarRecursivo(actual.getDer(), triplete, frecuencia));
             return actual;
         } else { 
-            int comparacionTriplete = triplete.compareTo(actual.getData().getTriplete());
+            int comparacionTriplete = triplete.compareTo(((patronADN) actual.getData()).getTriplete());
 
             if (comparacionTriplete < 0) { 
                 actual.setIzq(eliminarRecursivo(actual.getIzq(), triplete, frecuencia));
@@ -207,7 +206,7 @@ public class ArbolBinarioDeBusqueda {
                 } else {
                     Nodo sucesor = encontrarMinimo(actual.getDer());
                     actual.setData(sucesor.getData());
-                    actual.setDer(eliminarRecursivo(actual.getDer(), sucesor.getData().getTriplete(), sucesor.getData().getFrecuencia()));
+                    actual.setDer(eliminarRecursivo(actual.getDer(), ((patronADN) sucesor.getData()).getTriplete(), ((patronADN) sucesor.getData()).getFrecuencia()));
                     return actual;
                 }
             }

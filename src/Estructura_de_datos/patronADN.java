@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Estructura_de_datos;
-import Estructura_de_datos.Lista;
 
 /**
  * Representa un patrón de ADN (triplete) con su información asociada.
@@ -36,14 +35,6 @@ public class patronADN {
         this.posiciones.Insertar(posicionInicial); 
         this.convertirAaminoacido(triplete); 
     }
-    
-    /**
-     * Constructor alternativo, útil si ya tienes la frecuencia calculada
-     * o si solo necesitas el triplete y la frecuencia para el BST.
-     * Puede que no se usen las 'posiciones' en todos los contextos con este constructor.
-     * @param triplete La secuencia del triplete.
-     * @param frecuencia La frecuencia predefinida del triplete.
-     */
 
     // --- Getters (métodos para obtener los valores de los atributos) ---
     public String getTriplete() {
@@ -110,172 +101,136 @@ public class patronADN {
     private void convertirAaminoacido(String tripleteADN) {
         String codonARN = tripleteADN.toUpperCase().replace('T', 'U');
         switch (codonARN) {
-            // Fenilalanina (Phenylalanine)
-            case "UUU": 
-            case "UUC":
+            case "UUU", "UUC" -> {
                 this.aminoacido = "Fenilalanina";
-                this.abreviatura3 = "Phe"; 
-                this.abreviatura1 = "F"; 
-                break; 
-            
-            // Leucina (Leucine)
-            case "UUA": 
-            case "UUG":
-            case "CUU": 
-            case "CUC": 
-            case "CUA": 
-            case "CUG":
+                this.abreviatura3 = "Phe";
+                this.abreviatura1 = "F";
+            }
+            case "UUA", "UUG", "CUU", "CUC", "CUA", "CUG" -> {
                 this.aminoacido = "Leucina";
-                this.abreviatura3 = "Leu"; 
-                this.abreviatura1 = "L"; 
-                break;
-            
-            // Isoleucina (Isoleucine)
-            case "AUU":
-            case "AUC":
-            case "AUA":
+                this.abreviatura3 = "Leu";
+                this.abreviatura1 = "L";
+            }
+            case "AUU", "AUC", "AUA" -> {
                 this.aminoacido = "Isoleucina";
                 this.abreviatura3 = "Ile";
                 this.abreviatura1 = "I";
-                break;
-            
-            // Metionina (Methionine) 
-            case "AUG":
+            }
+            case "AUG" -> {
                 this.aminoacido = "Metionina";
                 this.abreviatura3 = "Met";
                 this.abreviatura1 = "M";
-                break;
-            
-            // Valina (Valine)
-            case "GUU":
-            case "GUC":
-            case "GUA":
-            case "GUG":
+            }
+            case "GUU", "GUC", "GUA", "GUG" -> {
                 this.aminoacido = "Valina";
                 this.abreviatura3 = "Val";
                 this.abreviatura1 = "V";
-                break;
-            
-            // Serina (Serine)
-            case "UCU": case "UCC": case "UCA": case "UCG":
-            case "AGU": case "AGC":
+            }
+            case "UCU", "UCC", "UCA", "UCG", "AGU", "AGC" -> {
                 this.aminoacido = "Serina";
                 this.abreviatura3 = "Ser";
                 this.abreviatura1 = "S";
-                break;
-
-            // Prolina (Proline)
-            case "CCU": case "CCC": case "CCA": case "CCG":
+            }
+            case "CCU", "CCC", "CCA", "CCG" -> {
                 this.aminoacido = "Prolina";
                 this.abreviatura3 = "Pro";
                 this.abreviatura1 = "P";
-                break;
-
-            // Treonina (Threonine)
-            case "ACU": case "ACC": case "ACA": case "ACG":
+            }
+            case "ACU", "ACC", "ACA", "ACG" -> {
                 this.aminoacido = "Treonina";
                 this.abreviatura3 = "Thr";
                 this.abreviatura1 = "T";
-                break;
-
-            // Alanina (Alanine)
-            case "GCU": case "GCC": case "GCA": case "GCG":
+            }
+            case "GCU", "GCC", "GCA", "GCG" -> {
                 this.aminoacido = "Alanina";
                 this.abreviatura3 = "Ala";
                 this.abreviatura1 = "A";
-                break;
-
-            // Tirosina (Tyrosine)
-            case "UAU": case "UAC":
+            }
+            case "UAU", "UAC" -> {
                 this.aminoacido = "Tirosina";
                 this.abreviatura3 = "Tyr";
                 this.abreviatura1 = "Y";
-                break;
-
-            // Histidina (Histidine)
-            case "CAU": case "CAC":
+            }
+            case "CAU", "CAC" -> {
                 this.aminoacido = "Histidina";
                 this.abreviatura3 = "His";
                 this.abreviatura1 = "H";
-                break;
-
-            // Glutamina (Glutamine)
-            case "CAA": case "CAG":
+            }
+            case "CAA", "CAG" -> {
                 this.aminoacido = "Glutamina";
                 this.abreviatura3 = "Gln";
                 this.abreviatura1 = "Q";
-                break;
-
-            // Asparagina (Asparagine)
-            case "AAU": case "AAC":
+            }
+            case "AAU", "AAC" -> {
                 this.aminoacido = "Asparagina";
                 this.abreviatura3 = "Asn";
                 this.abreviatura1 = "N";
-                break;
-
-            // Lisina (Lysine)
-            case "AAA": case "AAG":
+            }
+            case "AAA", "AAG" -> {
                 this.aminoacido = "Lisina";
                 this.abreviatura3 = "Lys";
                 this.abreviatura1 = "K";
-                break;
-
-            // Ácido Aspártico (Aspartic Acid)
-            case "GAU": case "GAC":
+            }
+            case "GAU", "GAC" -> {
                 this.aminoacido = "Ácido Aspártico";
                 this.abreviatura3 = "Asp";
                 this.abreviatura1 = "D";
-                break;
-
-            // Ácido Glutámico (Glutamic Acid)
-            case "GAA": case "GAG":
+            }
+            case "GAA", "GAG" -> {
                 this.aminoacido = "Ácido Glutámico";
                 this.abreviatura3 = "Glu";
                 this.abreviatura1 = "E";
-                break;
-
-            // Cisteína (Cysteine)
-            case "UGU": case "UGC":
+            }
+            case "UGU", "UGC" -> {
                 this.aminoacido = "Cisteína";
                 this.abreviatura3 = "Cys";
                 this.abreviatura1 = "C";
-                break;
-
-            // Triptófano (Tryptophan)
-            case "UGG":
+            }
+            case "UGG" -> {
                 this.aminoacido = "Triptófano";
                 this.abreviatura3 = "Trp";
                 this.abreviatura1 = "W";
-                break;
-
-            // Arginina (Arginine)
-            case "CGU": case "CGC": case "CGA": case "CGG":
-            case "AGA": case "AGG":
+            }
+            case "CGU", "CGC", "CGA", "CGG", "AGA", "AGG" -> {
                 this.aminoacido = "Arginina";
                 this.abreviatura3 = "Arg";
                 this.abreviatura1 = "R";
-                break;
-
-            // Glicina (Glycine)
-            case "GGU": case "GGC": case "GGA": case "GGG":
+            }
+            case "GGU", "GGC", "GGA", "GGG" -> {
                 this.aminoacido = "Glicina";
                 this.abreviatura3 = "Gly";
                 this.abreviatura1 = "G";
-                break;
-           
-            case "UAA":
-            case "UAG":
-            case "UGA":
+            }
+            case "UAA", "UAG", "UGA" -> {
                 this.aminoacido = "Parada";
-                this.abreviatura3 = "STOP"; 
-                this.abreviatura1 = "*"; 
-                break;
-            
-            default:
+                this.abreviatura3 = "STOP";
+                this.abreviatura1 = "*";
+            }
+            default -> {
                 this.aminoacido = "Desconocido";
                 this.abreviatura3 = "N/A";
                 this.abreviatura1 = "?";
-                break;
+            }
         }
-    }
+        // Fenilalanina (Phenylalanine)
+        // Leucina (Leucine)
+        // Isoleucina (Isoleucine)
+        // Metionina (Methionine)
+        // Valina (Valine)
+        // Serina (Serine)
+        // Prolina (Proline)
+        // Treonina (Threonine)
+        // Alanina (Alanine)
+        // Tirosina (Tyrosine)
+        // Histidina (Histidine)
+        // Glutamina (Glutamine)
+        // Asparagina (Asparagine)
+        // Lisina (Lysine)
+        // Ácido Aspártico (Aspartic Acid)
+        // Ácido Glutámico (Glutamic Acid)
+        // Cisteína (Cysteine)
+        // Triptófano (Tryptophan)
+        // Arginina (Arginine)
+        // Glicina (Glycine)
+            }
 }

@@ -7,32 +7,37 @@ package Estructura_de_datos;
 /**
  *
  * @author Diego Arreaza y Vyckhy Sarmiento
+ * @param <T>
  */
-public class Nodo {
+public class Nodo <T> {
   
-    //atributos para la lista
-    private Object dato;
-    private Nodo pNext;
+    //atributos del Nodo
     
-    //atributos para el arbol
-    private patronADN data;
+    private Nodo pNext;
+    private T data;
     private Nodo izq;
     private Nodo der;
     
     //constructor para el arbol
-    public Nodo(patronADN data) {
+
+    /**
+     *
+     * @param data
+     */
+    public Nodo(T data) {
         this.data = data;
         this.izq = null;
         this.der = null;
+        this.pNext =null;
     }
     
     //gettters y setters para el arbol
 
-    public patronADN getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(patronADN data) {
+    public void setData(T data) {
         this.data = data;
     }
 
@@ -50,27 +55,6 @@ public class Nodo {
 
     public void setDer(Nodo der) {
         this.der = der;
-    }
-    
-    
-    
-    //constructor vacio
-    public Nodo() {
-        this.dato = null;
-        this.pNext = null;
-    }
-
-    public Nodo(Object dato) {
-        this.dato = dato;
-        this.pNext = null;
-    }
-
-    public Object getDato() {
-        return dato;
-    }
-
-    public void setDato(Object dato) {
-        this.dato = dato;
     }
 
     public Nodo getpNext() {

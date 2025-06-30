@@ -22,7 +22,6 @@ public class Lista {
         this.pLast = null;
     }
     
-   
     //getters y setters
     public Nodo getpFirst() {
         return pFirst;
@@ -73,13 +72,13 @@ public class Lista {
     public Object AccederAlValor(int posicion){
         if(posicion>=0 && posicion<size){
             if (posicion == 0) {
-                return pFirst.getDato();
+                return pFirst.getData();
             }else{
                 Nodo aux = pFirst;
                 for (int i = 0; i < posicion; i++) {
                     aux = aux.getpNext();
                 }
-                return aux.getDato();
+                return aux.getData();
             }
         }
         return null;
@@ -122,19 +121,6 @@ public class Lista {
         }
     }
     
-    //funcion para imprimir la lista
-    public void Imprimir(){
-        if (!EsVacio()){
-            Nodo aux = pFirst;
-            for(int i = 0; i<size; i++){
-                System.out.println(aux.getDato()+ "");
-                aux = aux.getpNext();
-            }
-        }else{
-            System.out.println("La lista esta vacia");
-        }
-    }
-    
     //insertar un nodo con un dato en especifica posicion
     public void InsertarPorPosicion(Object dato, int posicion){
         Nodo nuevo = new Nodo(dato);
@@ -166,7 +152,7 @@ public class Lista {
         Nodo aux = pFirst;
         boolean encontrado = false;
         while(aux != null && encontrado != true){
-            if (referencia == aux.getDato()){ 
+            if (referencia == aux.getData()){ 
                 encontrado = true;
             }
             else{
@@ -181,7 +167,7 @@ public class Lista {
         if (buscar(referencia)) {
             Nodo aux = pFirst;
             int cont = 0;
-            while(referencia != aux.getDato()){
+            while(referencia != aux.getData()){
                 cont ++;
                 aux = aux.getpNext();
             }
@@ -231,7 +217,7 @@ public void InsertarDespues(Object dato, int posicion) {
 
         if(posicion>=0 && posicion<size){
             if(posicion == 0){
-                pFirst.setDato(dato);
+                pFirst.setData(dato);
             }
             else{
                 Nodo aux = pFirst;
@@ -239,7 +225,7 @@ public void InsertarDespues(Object dato, int posicion) {
                 for (int i = 0; i < posicion; i++) {
                     aux = aux.getpNext();
                 }
-                aux.setDato(dato);
+                aux.setData(dato);
             }
         }
     }
@@ -267,10 +253,10 @@ public void InsertarDespues(Object dato, int posicion) {
     public void editarPorReferencia(Object referencia, Object dato){
         if (buscar(referencia)) {
             Nodo aux = pFirst;
-            while(aux.getDato() != referencia){
+            while(aux.getData() != referencia){
                 aux = aux.getpNext();
             }
-            aux.setDato(dato);
+            aux.setData(dato);
         }
     }
     
