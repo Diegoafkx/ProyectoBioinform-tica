@@ -12,9 +12,9 @@ import java.util.Hashtable;
  *
  * @author Diego Arreaza y Vyckhy Sarmiento
  */
-public class Ventana1 extends javax.swing.JFrame {
+public class Menu extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Ventana1.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Menu.class.getName());
     /**
      * String con la cadena de adn de la cadena de texto
      */
@@ -26,16 +26,16 @@ public class Ventana1 extends javax.swing.JFrame {
     /**
      * Matriz que contiene de materna organizada los keys del hashtable
      */
-    String[] tripleta_ordenada;
+    private String[] tripleta_ordenada;
     /**
      * 
      */
-    ArbolBinarioDeBusqueda arbol;
+    private ArbolBinarioDeBusqueda arbol;
     /**
      * Creates new form Ventana1
      * @param c cadena de ADN
      */
-    public Ventana1(String c) {
+    public Menu(String c) {
         cadena = c;
         initComponents();
         this.CrearhashTable();
@@ -50,12 +50,10 @@ public class Ventana1 extends javax.swing.JFrame {
      */
     private void CrearhashTable(){
         tripleta = new Hashtable<>();
-        for (int i = 0; i < cadena.length(); i=i+3) {
-            if (i >=cadena.length()) {
-                return;
-            }
-            String aux = String.valueOf(cadena.charAt(i))+ String.valueOf(cadena.charAt(i+1))+ String.valueOf(cadena.charAt(i+2));
-            if (tripleta.containsKey(aux)==true) {
+        for (int i = 0; i+2 < cadena.length(); i=i+3) {
+            
+            String aux = cadena.substring(i, i + 3);
+            if (tripleta.containsKey(aux)) {
                 tripleta.get(aux).agregarPosicion(i);
                 tripleta.get(aux).incrementarFrecuencia();
             }else{
@@ -66,7 +64,7 @@ public class Ventana1 extends javax.swing.JFrame {
     }
     
     /**
-     * metodo que se encarga de organizar el hashtable por orden de frecuendia en una matriz para la creacion del arbol de busqueda
+     * metodo que se encarga de organizar los keys de la hashtable por orden de frecuendia en una matriz
      */
     private void organizar_posiciones(){
         tripleta_ordenada = new String[tripleta.size()];
@@ -81,17 +79,19 @@ public class Ventana1 extends javax.swing.JFrame {
         while(tripleta_ordenada[tripleta.size()-1] == null){  
             
             if(i == tripleta.size()-1){
+                
                 keys = tripleta.keys();
                 tripleta_ordenada[x] = adn;
                 x++;
                 i=0;
-                menor=menor+1;
+                menor=Integer.MAX_VALUE;
             }
+            
             key = keys.nextElement();
             if(((patronADN) tripleta.get(key)).getFrecuencia()<= menor){
-                boolean buscador = false;
+                 boolean buscador = false;
                 for (int j = 0; tripleta_ordenada[j]!=null; j++) {
-                    if (tripleta_ordenada[j]==key) {
+                    if (tripleta_ordenada[j].equals(key)) {
                        buscador = true;
                        break;
                     }
@@ -104,17 +104,31 @@ public class Ventana1 extends javax.swing.JFrame {
             i++;
         }
     }
+    
+    /**
+     * Metodo que se encarga de crear el arbol binario de busqueda
+     */
     private void Crear_arbol_binario_de_busqueda(){
         arbol = new ArbolBinarioDeBusqueda();
         int posicion_raiz = (int) (tripleta.size()-1)/2;
         Nodo aux = new Nodo(tripleta.get(tripleta_ordenada[posicion_raiz]));
         arbol.setRoot(aux);
-        for (int i = 0; tripleta.size() < 10; i++) {
-            if(i != posicion_raiz){
-                aux = new Nodo(tripleta.get(tripleta_ordenada[i]));
-                
+        Enumeration<String> keys = tripleta.keys();
+        String key = keys.nextElement();
+        for (int i = 1; i < tripleta.size(); i++) {
+            if(key.equals(tripleta_ordenada[posicion_raiz])!= true){
+                arbol.insertar(tripleta.get(tripleta_ordenada[i]));
             }
+            key = keys.nextElement();
         }
+    }
+    
+    /**
+     * Metodo que se encarga ded retornar al arbol formado por las tripletas de la cadena por orden de frecuencia
+     * @return arbol binario de busqueda con las tripletas
+     */
+    public ArbolBinarioDeBusqueda get_Arbol(){
+        return arbol;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -126,9 +140,10 @@ public class Ventana1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Lista_Tripletas = new javax.swing.JButton();
+        Ver_Max_Min = new javax.swing.JButton();
+        Lista_Aminoacidos = new javax.swing.JButton();
+        Buscar_Tripleta_Espefica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -137,29 +152,32 @@ public class Ventana1 extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Lista_Tripletas.setText("Ver Lista de las Tripletas que forman a la cadena");
+        Lista_Tripletas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Lista_TripletasActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 530, 70));
+        jPanel1.add(Lista_Tripletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 530, 70));
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Ver_Max_Min.setText("Ver a la Tripleta con el Maximo o el Minimo de frecuencia en la cadena");
+        Ver_Max_Min.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                Ver_Max_MinActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 530, 70));
+        jPanel1.add(Ver_Max_Min, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 530, 70));
 
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Lista_Aminoacidos.setText("Ver Lista de los Aminoacidos");
+        Lista_Aminoacidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                Lista_AminoacidosActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 530, 70));
+        jPanel1.add(Lista_Aminoacidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 530, 70));
+
+        Buscar_Tripleta_Espefica.setText("Buscar Tripleta especifica");
+        jPanel1.add(Buscar_Tripleta_Espefica, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 530, 70));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 610));
 
@@ -167,26 +185,26 @@ public class Ventana1 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    chocolate1 nuevaVentana = new chocolate1();
+    private void Lista_TripletasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lista_TripletasActionPerformed
+    Lista_de_Tripletas nuevaVentana = new Lista_de_Tripletas();
     nuevaVentana.setVisible(true);
        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Lista_TripletasActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    duende2 nuevaVentanaDuende = new duende2(); 
-    nuevaVentanaDuende.setVisible(true);
+    private void Ver_Max_MinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_Max_MinActionPerformed
+    Ver_Max_Min nuevaVentana = new Ver_Max_Min(this); 
+    nuevaVentana.setVisible(true);
     this.dispose(); 
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_Ver_Max_MinActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        lol3 ventanaXD = new lol3();
-        ventanaXD.setVisible(true);
+    private void Lista_AminoacidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lista_AminoacidosActionPerformed
+        Ver_Lista_de_ARN ventana = new Ver_Lista_de_ARN();
+        ventana.setVisible(true);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_Lista_AminoacidosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,13 +228,14 @@ public class Ventana1 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Ventana1(cadena).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Menu(cadena).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Buscar_Tripleta_Espefica;
+    private javax.swing.JButton Lista_Aminoacidos;
+    private javax.swing.JButton Lista_Tripletas;
+    private javax.swing.JButton Ver_Max_Min;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
