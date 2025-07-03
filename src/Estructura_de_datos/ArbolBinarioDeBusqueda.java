@@ -225,5 +225,44 @@ public class ArbolBinarioDeBusqueda {
             }
         }
     }
+    
+    /**
+     * Realiza un recorrido in-orden del árbol y recolecta la información de los patrones ADN.
+     * Los patrones se presentan en formato: "Triplete: [triplete], Frecuencia: [frecuencia], Posiciones: [posiciones]"
+     * @return Una cadena de texto con la información de todos los patrones ADN ordenados por frecuencia.
+     */
+    public String obtenerPatronesEnOrden() {
+        StringBuilder sb = new StringBuilder();
+        inOrderTraversal(root, sb);
+        return sb.toString();
+    }
+
+    /**
+     * Método auxiliar recursivo para el recorrido in-orden.
+     * @param nodo El nodo actual en el recorrido.
+     * @param sb El StringBuilder para acumular la información.
+     */
+    private void inOrderTraversal(Nodo nodo, StringBuilder sb) {
+        if (nodo != null) {
+            inOrderTraversal(nodo.getIzq(), sb);
+            patronADN patron = (patronADN) nodo.getData();
+            sb.append("Triplete: ").append(patron.getTriplete())
+              .append(", Frecuencia: ").append(patron.getFrecuencia())
+              .append(", Posiciones: [");
+            Lista posiciones = patron.getPosiciones();
+            Nodo currentPos = posiciones.getpFirst();
+            while (currentPos != null) {
+                sb.append(currentPos.getData());
+                if (currentPos.getpNext() != null) {
+                    sb.append(", ");
+                }
+                currentPos = currentPos.getpNext();
+            }
+            sb.append("]\n");
+            
+            inOrderTraversal(nodo.getDer(), sb);
+        }
+    }
+
 }
 

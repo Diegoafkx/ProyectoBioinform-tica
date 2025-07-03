@@ -4,12 +4,16 @@
  */
 package proyecto.de.bioinformática;
 
+import java.awt.TextArea;
+
 /**
  *
  * @author Diego Arreaza y Vyckhy Sarmiento
  */
 public class Ver_Lista_de_ARN extends javax.swing.JFrame {
-
+    
+   
+    
     /**
      * Creates new form lol3
      */
