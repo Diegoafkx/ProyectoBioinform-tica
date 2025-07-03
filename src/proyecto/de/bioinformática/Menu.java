@@ -44,6 +44,13 @@ public class Menu extends javax.swing.JFrame {
         this.setVisible(true);
     }
     
+    public String[] get_tripleta_ordenado(){
+        return tripleta_ordenada;
+    }
+    
+    public Hashtable get_tablahash(){
+        return tripleta;
+    }
     /**
      * Metodo que se encarga de crear el hashtable con las tripletas de adn
      * Revisa si la tripleta se encuentra dentro del Hash, si se encuentraa se aumenta su frecuencia y se coloca la posicion y si no se agrega en el hastable
@@ -186,7 +193,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Lista_TripletasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lista_TripletasActionPerformed
-    Lista_de_Tripletas nuevaVentana = new Lista_de_Tripletas();
+    Lista_de_Tripletas nuevaVentana = new Lista_de_Tripletas(this);
     nuevaVentana.setVisible(true);
        
     }//GEN-LAST:event_Lista_TripletasActionPerformed
@@ -200,7 +207,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Ver_Max_MinActionPerformed
 
     private void Lista_AminoacidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lista_AminoacidosActionPerformed
-        Ver_Lista_de_ARN ventana = new Ver_Lista_de_ARN();
+        Ver_Lista_de_ARN ventana = new Ver_Lista_de_ARN(this);
         ventana.setVisible(true);
 
         // TODO add your handling code here:

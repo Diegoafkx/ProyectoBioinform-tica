@@ -4,20 +4,19 @@
  */
 package proyecto.de.bioinformática;
 
-import java.awt.TextArea;
-
 /**
  *
  * @author Diego Arreaza y Vyckhy Sarmiento
  */
-public class Ver_Lista_de_ARN extends javax.swing.JFrame {
+    public class Ver_Lista_de_ARN extends javax.swing.JFrame {
     
-   
+   private static Menu menu;
     
     /**
      * Creates new form lol3
      */
-    public Ver_Lista_de_ARN() {
+    public Ver_Lista_de_ARN(Menu m) {
+        menu = m;
         initComponents();
     }
 
@@ -31,17 +30,7 @@ public class Ver_Lista_de_ARN extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -77,7 +66,7 @@ public class Ver_Lista_de_ARN extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ver_Lista_de_ARN().setVisible(true);
+                new Ver_Lista_de_ARN(menu).setVisible(true);
             }
         });
     }
