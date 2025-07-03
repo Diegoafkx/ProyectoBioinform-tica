@@ -57,14 +57,24 @@ public class ArbolBinarioDeBusqueda {
      */
     private Nodo insertarRecursivo(Nodo actual, Nodo nuevoNodo) {
         if (actual == null) {
-            size++; 
             return nuevoNodo;
         }
-        if (((patronADN) actual.getData()).getFrecuencia() < ((patronADN) nuevoNodo.getData()).getFrecuencia()) {
-            actual.setDer(insertarRecursivo(actual.getIzq(), nuevoNodo));
-        } else if (((patronADN) actual.getData()).getFrecuencia() >= ((patronADN) nuevoNodo.getData()).getFrecuencia()) {
-            actual.setIzq(insertarRecursivo(actual.getDer(), nuevoNodo));
-        } 
+        patronADN patronActual = (patronADN) actual.getData();
+        patronADN patronNuevo = (patronADN) nuevoNodo.getData();
+        if (patronNuevo.getFrecuencia() < patronActual.getFrecuencia()) {
+            actual.setIzq(insertarRecursivo(actual.getIzq(), nuevoNodo));
+        } else if (patronNuevo.getFrecuencia() > patronActual.getFrecuencia()) {
+            actual.setDer(insertarRecursivo(actual.getDer(), nuevoNodo));
+        } else {
+            int comparacionTriplete = patronNuevo.getTriplete().compareTo(patronActual.getTriplete());
+            if (comparacionTriplete < 0) { 
+                actual.setIzq(insertarRecursivo(actual.getIzq(), nuevoNodo));
+            } else if (comparacionTriplete > 0) { 
+                actual.setDer(insertarRecursivo(actual.getDer(), nuevoNodo));
+            } else {
+                return actual; 
+            }
+        }
         return actual;
     }
     
