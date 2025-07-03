@@ -77,15 +77,37 @@ public class Menu extends javax.swing.JFrame {
         tripleta_ordenada = new String[tripleta.size()];
         
         int i = 0;
-        int x =0;
         Enumeration<String> keys = tripleta.keys();
         String key = keys.nextElement();
         
-        while(tripleta_ordenada[tripleta.size()-1] == null){  
+        while(tripleta_ordenada[tripleta.size()-2] == null){  
             tripleta_ordenada[i] = key;
             key = keys.nextElement();            
             i++;
         }
+        i= 0;
+        int aux=0;
+        int x =0;
+        while(x<tripleta.size()){
+            aux = i;
+            String key2;
+            key = tripleta_ordenada[aux];
+            int posicion_1 = aux;
+            int posicion_2=aux;
+            while(aux <tripleta.size()){
+                aux++;
+                key2 =tripleta_ordenada[aux];
+                if(tripleta.get(key).getFrecuencia()>tripleta.get(key2).getFrecuencia()){
+                  posicion_2 = aux;  
+                }
+            }
+            key2 = tripleta_ordenada[posicion_2];
+            tripleta_ordenada[posicion_1] = key2;
+            tripleta_ordenada[posicion_2] = key;
+            i++;
+            x++;
+        }
+        
     }
     
     /**
