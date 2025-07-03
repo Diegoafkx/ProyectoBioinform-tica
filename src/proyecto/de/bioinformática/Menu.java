@@ -80,34 +80,10 @@ public class Menu extends javax.swing.JFrame {
         int x =0;
         Enumeration<String> keys = tripleta.keys();
         String key = keys.nextElement();
-        int menor = ((patronADN) tripleta.get(key)).getFrecuencia();
-        String adn = key;
         
         while(tripleta_ordenada[tripleta.size()-1] == null){  
-            
-            if(i == tripleta.size()-1){
-                
-                keys = tripleta.keys();
-                tripleta_ordenada[x] = adn;
-                x++;
-                i=0;
-                menor=Integer.MAX_VALUE;
-            }
-            
-            key = keys.nextElement();
-            if(((patronADN) tripleta.get(key)).getFrecuencia()<= menor){
-                 boolean buscador = false;
-                for (int j = 0; tripleta_ordenada[j]!=null; j++) {
-                    if (tripleta_ordenada[j].equals(key)) {
-                       buscador = true;
-                       break;
-                    }
-                }
-                if (buscador ==false) {
-                    menor = ((patronADN) tripleta.get(key)).getFrecuencia();
-                    adn = key;
-                }
-            }
+            tripleta_ordenada[i] = key;
+            key = keys.nextElement();            
             i++;
         }
     }
