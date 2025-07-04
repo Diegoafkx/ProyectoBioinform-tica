@@ -7,7 +7,8 @@ import Estructura_de_datos.ArbolBinarioDeBusqueda;
 import Estructura_de_datos.patronADN;
 import Estructura_de_datos.Hashtable;
 /**
- *
+ * Ventana principal del sistema que gestiona la carga de ADN y despliega opciones de análisis.
+ * Coordina la interacción entre la tabla hash y el árbol binario de búsqueda.
  * @author Diego Arreaza y Vyckhy Sarmiento
  */
 public class Menu extends javax.swing.JFrame {
@@ -29,9 +30,9 @@ public class Menu extends javax.swing.JFrame {
      * ArbolBinarioDeBusqueda que almacena los patrones ADN, ordenados por frecuencia.
      */
     private ArbolBinarioDeBusqueda arbol;
-    /**
-     * Creates new form Ventana1
-     * @param cadenaADN
+     /**
+     * Inicializa las estructuras de datos con la cadena de ADN proporcionada.
+     * @param cadenaADN Cadena de nucleótidos (A, T, C, G) a analizar
      */
     public Menu(String cadenaADN) {
         this.cadena = cadenaADN;

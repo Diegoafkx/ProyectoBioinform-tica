@@ -5,8 +5,9 @@
 package Estructura_de_datos;
 
 /**
- *
- * @author Diego Arreaza y Vyckhy Sarmiento
+ * Implementación de lista enlazada simple para manejar colecciones de nodos.
+ * Utilizada como cubeta en la tabla hash y para almacenar posiciones de patrones.
+ * @author Vyckhy Sarmiento y Diego Arreaza
  */
 public class Lista {
     
