@@ -5,10 +5,7 @@
 package proyecto.de.bioinformática;
 import Estructura_de_datos.ArbolBinarioDeBusqueda;
 import Estructura_de_datos.patronADN;
-import Estructura_de_datos.Nodo;
-import java.util.Enumeration;
 import Estructura_de_datos.Hashtable;
-import javax.swing.JOptionPane;
 /**
  *
  * @author Diego Arreaza y Vyckhy Sarmiento
@@ -40,7 +37,7 @@ public class Menu extends javax.swing.JFrame {
         this.cadena = cadenaADN;
         initComponents();
         initStructures();
-        this.setVisible(true);
+        Colisiones aux = new Colisiones(this);
     }
     
      private void initStructures() {

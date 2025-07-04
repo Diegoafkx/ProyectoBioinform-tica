@@ -117,7 +117,7 @@ public class Ver_Max_Min extends javax.swing.JFrame {
                 RegresarActionPerformed(evt);
             }
         });
-        getContentPane().add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
+        getContentPane().add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 458, -1, 30));
 
         pack();
         setLocationRelativeTo(null);
