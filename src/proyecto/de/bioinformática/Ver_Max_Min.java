@@ -45,11 +45,10 @@ public class Ver_Max_Min extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Exit = new javax.swing.JButton();
         Resultado = new javax.swing.JTextField();
+        Exit = new javax.swing.JButton();
         Minimo = new javax.swing.JButton();
         Maximo = new javax.swing.JButton();
-        Search = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         Regresar = new javax.swing.JButton();
@@ -59,16 +58,8 @@ public class Ver_Max_Min extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        Exit.setText("X");
-        Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 60, -1));
 
         Resultado.setEditable(false);
         Resultado.setText("Aqui se mostrara el resultado de la busqueda");
@@ -77,39 +68,41 @@ public class Ver_Max_Min extends javax.swing.JFrame {
                 ResultadoActionPerformed(evt);
             }
         });
-        getContentPane().add(Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 500, -1));
+        jPanel1.add(Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 500, -1));
 
-        Minimo.setText("Minimo");
+        Exit.setText("X");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 60, -1));
+
+        Minimo.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        Minimo.setText("Tripleta con el minimo de frecuecia");
         Minimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MinimoActionPerformed(evt);
             }
         });
-        getContentPane().add(Minimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
+        jPanel1.add(Minimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, 50));
 
-        Maximo.setText("Maximo");
+        Maximo.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        Maximo.setText("Tripleta con el maximo de frecuecia");
         Maximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MaximoActionPerformed(evt);
             }
         });
-        getContentPane().add(Maximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, -1, -1));
-
-        Search.setText("Buscar");
-        Search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
+        jPanel1.add(Maximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, -1, 50));
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("\t\t---INFORMACION---\nLa cadena de ADN pusee multiples tripletas que la conforman, la tripleta puede estar \nformada por: adenina (A), guanina (G), citosina (C) y timina (T), al ser una gran candena\nesta puede contener multiples veces la misma tripleta en distintas posiciones.\n\t\t\nAqui el usuario podra ver cual de Tripleta es la que mas se repite y la que menos se\nrepite.\n\t\t          ---PASOS---\nEl usuario selecionara cual desea buscar y luego le dara buscar y el programa le \nmostrara el resultado de la busqueda.");
+        jTextArea1.setText("\t\t---INFORMACION---\nLa cadena de ADN pusee multiples tripletas que la conforman, la tripleta puede estar \nformada por: adenina (A), guanina (G), citosina (C) y timina (T), al ser una gran candena\nesta puede contener multiples veces la misma tripleta en distintas posiciones.\n\t\t\nAqui el usuario podra ver cual de Tripleta es la que mas se repite y la que menos se\nrepite.\n\t\t          ---PASOS---\n\tEl usuario selecionara cual desea buscar (Minimo o Maximo)\n\t     y el programa le mostrara el resultado de la busqueda.");
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 500, 190));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 500, 190));
 
         Regresar.setText("Regresar");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +110,9 @@ public class Ver_Max_Min extends javax.swing.JFrame {
                 RegresarActionPerformed(evt);
             }
         });
-        getContentPane().add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 458, -1, 30));
+        jPanel1.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 458, -1, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 490));
 
         pack();
         setLocationRelativeTo(null);
@@ -138,7 +133,7 @@ public class Ver_Max_Min extends javax.swing.JFrame {
      */
     private void MinimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinimoActionPerformed
         // TODO add your handling code here:
-        Frecuencia ="minimo";
+         Resultado.setText("El triplete menos frecuentado es "+arbol.patronMenosFrecuente().getTriplete()+" con "+arbol.patronMenosFrecuente().getFrecuencia()+" veces.");
     }//GEN-LAST:event_MinimoActionPerformed
     /**
      * Metodo que se activa al precionar al boton Maximo
@@ -147,28 +142,8 @@ public class Ver_Max_Min extends javax.swing.JFrame {
      */
     private void MaximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaximoActionPerformed
         // TODO add your handling code here:
-        Frecuencia ="maximo";
+        Resultado.setText("El triplete mas frecuentado es "+arbol.patronMasFrecuente().getTriplete()+" con "+arbol.patronMasFrecuente().getFrecuencia()+" veces.");
     }//GEN-LAST:event_MaximoActionPerformed
-    /**
-     * Metodo que se activa al precionar al boton Search
-     * Se encarga de realizar la busqueda del triplete que el usuario desea ver 
-     * @param evt 
-     */
-    private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
-        // TODO add your handling code here:
-        Resultado.setText("");
-        switch (Frecuencia) {
-            case "minimo":
-                Resultado.setText("El triplete menos frecuentado es "+arbol.patronMenosFrecuente().getTriplete()+" con "+arbol.patronMenosFrecuente().getFrecuencia()+" veces.");
-                break;
-            case "maximo":
-                Resultado.setText("El triplete mas frecuentado es "+arbol.patronMasFrecuente().getTriplete()+" con "+arbol.patronMasFrecuente().getFrecuencia()+" veces.");
-                break;
-            default:
-                Resultado.setText("ERROR. No se ha ingresado que se desea obsservar");
-                break;
-        }
-    }//GEN-LAST:event_SearchActionPerformed
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
         // TODO add your handling code here:
@@ -218,7 +193,6 @@ public class Ver_Max_Min extends javax.swing.JFrame {
     private javax.swing.JButton Minimo;
     private javax.swing.JButton Regresar;
     private javax.swing.JTextField Resultado;
-    private javax.swing.JButton Search;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

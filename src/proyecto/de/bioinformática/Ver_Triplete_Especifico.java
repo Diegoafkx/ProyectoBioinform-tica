@@ -21,7 +21,7 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         initComponents();
         tripleta.setText("");
         frecuencia_tripleta.setText("");
-        posiciones_tripleta.setText("");
+        this.setVisible(true);
     }
 
     /**
@@ -41,11 +41,13 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         Frecuencia = new javax.swing.JLabel();
         frecuencia_tripleta = new javax.swing.JLabel();
         Posiciones = new javax.swing.JLabel();
-        posiciones_tripleta = new javax.swing.JLabel();
         Tripleta = new javax.swing.JLabel();
         tripleta = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -93,11 +95,6 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         Posiciones.setText("Posiciones:");
         jPanel1.add(Posiciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 220, -1));
 
-        posiciones_tripleta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        posiciones_tripleta.setForeground(new java.awt.Color(0, 0, 0));
-        posiciones_tripleta.setText("Aqui saldra las posiciones");
-        jPanel1.add(posiciones_tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 370, -1));
-
         Tripleta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         Tripleta.setForeground(new java.awt.Color(0, 0, 0));
         Tripleta.setText("Tripleta Seleccionado:");
@@ -108,9 +105,21 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         tripleta.setText("Aqui saldra la tripleta");
         jPanel1.add(tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 370, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 680));
+        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aqui saldran las posiciones" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 330, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 680));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
@@ -123,6 +132,10 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         this.dispose();
         menu.back();
     }//GEN-LAST:event_BackActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,10 +169,10 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
     private javax.swing.JLabel Posiciones;
     private javax.swing.JLabel Tripleta;
     private javax.swing.JLabel frecuencia_tripleta;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel posiciones_tripleta;
     private javax.swing.JLabel tripleta;
     // End of variables declaration//GEN-END:variables
 }
