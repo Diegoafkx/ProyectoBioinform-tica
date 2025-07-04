@@ -9,7 +9,7 @@ package Estructura_de_datos;
  * Almacena la secuencia del triplete, su frecuencia, las posiciones donde aparece,
  * y el aminoácido que codifica junto con sus abreviaturas.
  *
- * @author vyckh y Diego Arreaza
+ * @author vyckhy y Diego Arreaza
  */
 
 public class patronADN {

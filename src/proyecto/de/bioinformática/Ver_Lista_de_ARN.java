@@ -4,21 +4,75 @@
  */
 package proyecto.de.bioinformática;
 
+import Estructura_de_datos.patronADN;
+import javax.swing.DefaultListModel;
+import javax.swing.ListSelectionModel;
+
 /**
- *
+ * Ventana que muestra la lista de tripletes de ADN y su correspondencia con aminoácidos.
+ * Permite visualizar detalles como abreviaturas y bases nucleotídicas al seleccionar un triplete.
+ * 
  * @author Diego Arreaza y Vyckhy Sarmiento
+ * @see Menu
+ * @see patronADN
+ * @see Hashtable
  */
     public class Ver_Lista_de_ARN extends javax.swing.JFrame {
     
    private static Menu menu;
     
-    /**
-     * Creates new form lol3
+     /**
+     * Constructor que inicializa la ventana con los datos de la tabla hash.
+     * 
+     * @param m Objeto Menu que contiene la tabla hash con los patrones de ADN.
      */
     public Ver_Lista_de_ARN(Menu m) {
         menu = m;
         initComponents();
+     jList1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
+     cargarListaAminoacidos();
     }
+    /**
+     * Carga los datos de los aminoácidos desde la tabla hash al JList.
+     * Formato: "Triplete - NombreAminoácido" (ej: "ATG - Metionina").
+     */
+    private void cargarListaAminoacidos() {
+    DefaultListModel<String> model = new DefaultListModel<>();
+    patronADN[] patrones = menu.get_tablahash().getAllPatrones();
+    
+    for (patronADN patron : patrones) {
+        if (patron != null) {
+            model.addElement(patron.getTriplete() + " - " + patron.getAminoacido());
+        }
+    }
+    jList1.setModel(model);
+}
+
+ /**
+     * Actualiza la información detallada del aminoácido seleccionado.
+     * Muestra: nombre completo, abreviaturas (3 y 1 letra), y bases del triplete.
+     */
+private void actualizarInfoAminoacido() {
+     String seleccionado = (String) jList1.getSelectedValue();
+    if (seleccionado != null) {
+        String triplete = seleccionado.split(" - ")[0];
+        patronADN patron = menu.get_tablahash().get(triplete);
+        
+        if (patron != null) {
+            aminoacido.setText(patron.getAminoacido());
+            tres_letras.setText(patron.getAbreviatura3());
+            una_letras1.setText(patron.getAbreviatura1());
+            
+            if (patron.getTriplete().length() >= 3) {
+                frecuencia_tripleta.setText(String.valueOf(patron.getTriplete().charAt(0)));
+                segunda.setText(String.valueOf(patron.getTriplete().charAt(1)));
+                tercera.setText(String.valueOf(patron.getTriplete().charAt(2)));
+            }
+        }
+    }
+}
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,77 +125,68 @@ package proyecto.de.bioinformática;
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 140, 520));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 140, 570));
 
         Primera.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Primera.setForeground(new java.awt.Color(0, 0, 0));
         Primera.setText("Primera");
         jPanel1.add(Primera, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 90, -1));
 
         frecuencia_tripleta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        frecuencia_tripleta.setForeground(new java.awt.Color(0, 0, 0));
         frecuencia_tripleta.setText("primera");
         jPanel1.add(frecuencia_tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 90, -1));
 
         tres_letras.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        tres_letras.setForeground(new java.awt.Color(0, 0, 0));
         tres_letras.setText("3 letras");
         jPanel1.add(tres_letras, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, 130, -1));
 
         Una_Letras.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Una_Letras.setForeground(new java.awt.Color(0, 0, 0));
         Una_Letras.setText("Abreviatura 1 Letras");
         jPanel1.add(Una_Letras, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 220, -1));
 
         Aminoacido.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Aminoacido.setForeground(new java.awt.Color(0, 0, 0));
         Aminoacido.setText("Aminoácidos Seleccionado:");
         jPanel1.add(Aminoacido, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 310, -1));
 
         aminoacido.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        aminoacido.setForeground(new java.awt.Color(0, 0, 0));
         aminoacido.setText("Aqui saldra la Aminoacido");
         jPanel1.add(aminoacido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 280, -1));
 
         Bases.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Bases.setForeground(new java.awt.Color(0, 0, 0));
         Bases.setText("Bases del Aminoácido");
         jPanel1.add(Bases, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 250, -1));
 
         segunda.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        segunda.setForeground(new java.awt.Color(0, 0, 0));
         segunda.setText("segunda");
         jPanel1.add(segunda, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 100, -1));
 
         Tercera.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Tercera.setForeground(new java.awt.Color(0, 0, 0));
         Tercera.setText("Tercera");
         jPanel1.add(Tercera, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 90, -1));
 
         tercera.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        tercera.setForeground(new java.awt.Color(0, 0, 0));
         tercera.setText("tercera");
         jPanel1.add(tercera, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 90, -1));
 
         Segunda.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Segunda.setForeground(new java.awt.Color(0, 0, 0));
         Segunda.setText("Segunda");
         jPanel1.add(Segunda, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 110, -1));
 
         Tres_Letras.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Tres_Letras.setForeground(new java.awt.Color(0, 0, 0));
         Tres_Letras.setText("Abreviatura 3 Letras");
         jPanel1.add(Tres_Letras, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, 220, -1));
 
         Abreviatura.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Abreviatura.setForeground(new java.awt.Color(0, 0, 0));
         Abreviatura.setText("Abreviatura");
         jPanel1.add(Abreviatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 130, -1));
 
         una_letras1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        una_letras1.setForeground(new java.awt.Color(0, 0, 0));
         una_letras1.setText("1 letras");
         jPanel1.add(una_letras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, 130, -1));
 
@@ -159,17 +204,34 @@ package proyecto.de.bioinformática;
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Cierra la ventana actual y regresa al menú principal.
+     * 
+     * @param evt Evento de acción del botón.
+     */
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
         this.dispose();
         menu.back();
     }//GEN-LAST:event_BackActionPerformed
-
+     /**
+     * Cierra la aplicación completamente.
+     * 
+     * @param evt Evento de acción del botón.
+     */
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        
+    if (!evt.getValueIsAdjusting()) {
+        actualizarInfoAminoacido();
+    }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jList1ValueChanged
 
     /**
      * @param args the command line arguments
