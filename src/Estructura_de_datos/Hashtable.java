@@ -66,7 +66,7 @@ public class Hashtable {
      * o es el patrón completo si es nuevo.
      */
     public void put(String clave, patronADN valor) {
-         int indice = hash(clave);
+    int indice = hash(clave);
     Lista cubeta = tabla[indice];
     Nodo current = cubeta.getpFirst();
     while (current != null) {

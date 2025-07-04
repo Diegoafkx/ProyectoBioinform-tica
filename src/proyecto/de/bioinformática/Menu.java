@@ -15,31 +15,32 @@ import javax.swing.JOptionPane;
  */
 public class Menu extends javax.swing.JFrame {
     
-     private String cadena;
-    private Hashtable tripleta;
-    private ArbolBinarioDeBusqueda arbol;
+     
+   
+    
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Menu.class.getName());
     /**
      * String con la cadena de adn de la cadena de texto
      */
-   
+    private String cadena;
     /**
      * Hashtable que tiene de key la tripleta y de valor un dato patronADN 
      */
-   
+    private Hashtable tripleta;
     /**
      * ArbolBinarioDeBusqueda que almacena los patrones ADN, ordenados por frecuencia.
      */
-  
+    private ArbolBinarioDeBusqueda arbol;
     /**
      * Creates new form Ventana1
-     * @param c cadena de ADN
+     * @param cadenaADN
      */
     public Menu(String cadenaADN) {
         this.cadena = cadenaADN;
         initComponents();
         initStructures();
+        this.setVisible(true);
     }
     
      private void initStructures() {
@@ -50,11 +51,12 @@ public class Menu extends javax.swing.JFrame {
         // 2. Construir árbol binario de búsqueda
         arbol = new ArbolBinarioDeBusqueda();
         Crear_arbol_binario_de_busqueda();
-
-        // 3. Generar reporte de colisiones (opcional)
-        System.out.println(tripleta.generarReporteColisiones());
     }
     
+     public void back(){
+         this.setVisible(true);
+     }
+     
     /**
      * Retorna la instancia de la tabla hash.
      * @return La tabla hash de patrones ADN.
@@ -113,6 +115,7 @@ public class Menu extends javax.swing.JFrame {
         Ver_Max_Min = new javax.swing.JButton();
         Lista_Aminoacidos = new javax.swing.JButton();
         Buscar_Tripleta_Espefica = new javax.swing.JButton();
+        Exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -146,7 +149,21 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(Lista_Aminoacidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 530, 70));
 
         Buscar_Tripleta_Espefica.setText("Buscar Tripleta especifica");
+        Buscar_Tripleta_Espefica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Buscar_Tripleta_EspeficaActionPerformed(evt);
+            }
+        });
         jPanel1.add(Buscar_Tripleta_Espefica, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 530, 70));
+
+        Exit.setBackground(new java.awt.Color(204, 0, 51));
+        Exit.setText("X");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 70, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 610));
 
@@ -177,6 +194,17 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Lista_AminoacidosActionPerformed
 
+    private void Buscar_Tripleta_EspeficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar_Tripleta_EspeficaActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Ver_Triplete_Especifico aux = new Ver_Triplete_Especifico(this);
+    }//GEN-LAST:event_Buscar_Tripleta_EspeficaActionPerformed
+
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_ExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -205,6 +233,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar_Tripleta_Espefica;
+    private javax.swing.JButton Exit;
     private javax.swing.JButton Lista_Aminoacidos;
     private javax.swing.JButton Lista_Tripletas;
     private javax.swing.JButton Ver_Max_Min;
