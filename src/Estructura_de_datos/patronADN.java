@@ -268,4 +268,24 @@ public class patronADN {
         // Arginina (Arginine)
         // Glicina (Glycine)
             }
+    
+    /**
+ * Obtiene la representación en ARN de este triplete (cambia T por U)
+ * @return El triplete convertido a ARN
+ */
+public String getTripleteARN() {
+    return this.triplete.toUpperCase().replace('T', 'U');
+}
+
+/**
+ * Obtiene la información completa del aminoácido en formato String
+ * @return String con: Triplete ARN, Aminoácido, Abreviaturas
+ */
+public String getInfoAminoacido() {
+    return String.format("ARN: %s | Aminoácido: %s (%s/%s)", 
+        getTripleteARN(),
+        this.aminoacido,
+        this.abreviatura3,
+        this.abreviatura1);
+}
 }

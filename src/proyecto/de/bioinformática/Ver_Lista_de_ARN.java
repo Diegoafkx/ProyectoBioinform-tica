@@ -65,9 +65,7 @@ package proyecto.de.bioinformática;
         });
         jPanel1.add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 650, 80, -1));
 
-        jList1.setBackground(new java.awt.Color(255, 255, 255));
         jList1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jList1.setForeground(new java.awt.Color(0, 0, 0));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -75,75 +73,61 @@ package proyecto.de.bioinformática;
         });
         jScrollPane1.setViewportView(jList1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 140, 520));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 140, 520));
 
         Primera.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Primera.setForeground(new java.awt.Color(0, 0, 0));
         Primera.setText("Primera");
         jPanel1.add(Primera, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 90, -1));
 
         frecuencia_tripleta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        frecuencia_tripleta.setForeground(new java.awt.Color(0, 0, 0));
         frecuencia_tripleta.setText("primera");
         jPanel1.add(frecuencia_tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 90, -1));
 
         tres_letras.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        tres_letras.setForeground(new java.awt.Color(0, 0, 0));
         tres_letras.setText("3 letras");
         jPanel1.add(tres_letras, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, 130, -1));
 
         Una_Letras.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Una_Letras.setForeground(new java.awt.Color(0, 0, 0));
         Una_Letras.setText("Abreviatura 1 Letras");
         jPanel1.add(Una_Letras, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 220, -1));
 
         Aminoacido.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Aminoacido.setForeground(new java.awt.Color(0, 0, 0));
         Aminoacido.setText("Aminoácidos Seleccionado:");
         jPanel1.add(Aminoacido, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 310, -1));
 
         aminoacido.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        aminoacido.setForeground(new java.awt.Color(0, 0, 0));
         aminoacido.setText("Aqui saldra la Aminoacido");
         jPanel1.add(aminoacido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 280, -1));
 
         Bases.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Bases.setForeground(new java.awt.Color(0, 0, 0));
         Bases.setText("Bases del Aminoácido");
         jPanel1.add(Bases, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 250, -1));
 
         segunda.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        segunda.setForeground(new java.awt.Color(0, 0, 0));
         segunda.setText("segunda");
         jPanel1.add(segunda, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 100, -1));
 
         Tercera.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Tercera.setForeground(new java.awt.Color(0, 0, 0));
         Tercera.setText("Tercera");
         jPanel1.add(Tercera, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 90, -1));
 
         tercera.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        tercera.setForeground(new java.awt.Color(0, 0, 0));
         tercera.setText("tercera");
         jPanel1.add(tercera, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 90, -1));
 
         Segunda.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Segunda.setForeground(new java.awt.Color(0, 0, 0));
         Segunda.setText("Segunda");
         jPanel1.add(Segunda, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 110, -1));
 
         Tres_Letras.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Tres_Letras.setForeground(new java.awt.Color(0, 0, 0));
         Tres_Letras.setText("Abreviatura 3 Letras");
         jPanel1.add(Tres_Letras, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, 220, -1));
 
         Abreviatura.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Abreviatura.setForeground(new java.awt.Color(0, 0, 0));
         Abreviatura.setText("Abreviatura");
         jPanel1.add(Abreviatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 130, -1));
 
         una_letras1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        una_letras1.setForeground(new java.awt.Color(0, 0, 0));
         una_letras1.setText("1 letras");
         jPanel1.add(una_letras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, 130, -1));
 
