@@ -62,6 +62,8 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         });
         jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 70, -1));
 
+        Back.setBackground(new java.awt.Color(255, 255, 255));
+        Back.setForeground(new java.awt.Color(0, 0, 0));
         Back.setText("Regresar");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

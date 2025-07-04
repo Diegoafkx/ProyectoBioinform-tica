@@ -57,6 +57,8 @@ package proyecto.de.bioinformática;
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Back.setBackground(new java.awt.Color(255, 255, 255));
+        Back.setForeground(new java.awt.Color(0, 0, 0));
         Back.setText("Regresar");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

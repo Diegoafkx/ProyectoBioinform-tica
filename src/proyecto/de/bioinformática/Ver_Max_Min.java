@@ -70,6 +70,7 @@ public class Ver_Max_Min extends javax.swing.JFrame {
         });
         jPanel1.add(Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 500, -1));
 
+        Exit.setBackground(new java.awt.Color(255, 0, 0));
         Exit.setText("X");
         Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +79,9 @@ public class Ver_Max_Min extends javax.swing.JFrame {
         });
         jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 60, -1));
 
+        Minimo.setBackground(new java.awt.Color(255, 255, 255));
         Minimo.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        Minimo.setForeground(new java.awt.Color(0, 0, 0));
         Minimo.setText("Tripleta con el minimo de frecuecia");
         Minimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +90,9 @@ public class Ver_Max_Min extends javax.swing.JFrame {
         });
         jPanel1.add(Minimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, 50));
 
+        Maximo.setBackground(new java.awt.Color(255, 255, 255));
         Maximo.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        Maximo.setForeground(new java.awt.Color(0, 0, 0));
         Maximo.setText("Tripleta con el maximo de frecuecia");
         Maximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +109,8 @@ public class Ver_Max_Min extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 500, 190));
 
+        Regresar.setBackground(new java.awt.Color(255, 255, 255));
+        Regresar.setForeground(new java.awt.Color(0, 0, 0));
         Regresar.setText("Regresar");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

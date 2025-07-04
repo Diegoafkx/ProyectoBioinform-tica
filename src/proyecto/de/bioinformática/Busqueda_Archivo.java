@@ -52,8 +52,11 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Buscar.setBackground(new java.awt.Color(255, 255, 255));
+        Buscar.setForeground(new java.awt.Color(0, 0, 0));
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +73,8 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         });
         jPanel1.add(getDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 220, -1));
 
+        Siguiente.setBackground(new java.awt.Color(255, 255, 255));
+        Siguiente.setForeground(new java.awt.Color(0, 0, 0));
         Siguiente.setText("Siguiente");
         Siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +83,7 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         });
         jPanel1.add(Siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
 
-        Exit.setBackground(new java.awt.Color(255, 0, 51));
+        Exit.setBackground(new java.awt.Color(255, 0, 0));
         Exit.setText("X");
         Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

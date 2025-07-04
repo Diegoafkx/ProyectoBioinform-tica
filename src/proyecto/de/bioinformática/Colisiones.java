@@ -39,6 +39,7 @@ public class Colisiones extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Exit.setBackground(new java.awt.Color(255, 0, 0));
@@ -50,6 +51,8 @@ public class Colisiones extends javax.swing.JFrame {
         });
         jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 70, -1));
 
+        Next.setBackground(new java.awt.Color(255, 255, 255));
+        Next.setForeground(new java.awt.Color(0, 0, 0));
         Next.setText("Siguiente");
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +61,7 @@ public class Colisiones extends javax.swing.JFrame {
         });
         jPanel1.add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 500));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
 
         pack();
         setLocationRelativeTo(null);
