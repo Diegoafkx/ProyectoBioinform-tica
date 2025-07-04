@@ -20,6 +20,21 @@ package proyecto.de.bioinformática;
         initComponents();
         frecuencia_tripleta.setText("");
     }
+    
+//    private void cargarListaTripletas() {
+//    ArbolBinarioDeBusqueda arbol = menu.get_Arbol(); // Obtiene el árbol desde Menu
+//    Lista patronesOrdenados = arbol.recorridoInOrdenParaGUI(); // Recorre in-orden
+//    
+//    // Convierte la Lista a un arreglo para el JList
+//    DefaultListModel<String> modelo = new DefaultListModel<>();
+//    Nodo actual = patronesOrdenados.getpFirst();
+//    while (actual != null) {
+//        modelo.addElement(actual.getData().toString()); // Añade cada patrón como String
+//        actual = actual.getpNext();
+//    }
+//    
+//    jList1.setModel(modelo); // Asigna el modelo al JList
+//}
 
     /**
      * This method is called from within the constructor to initialize the form.

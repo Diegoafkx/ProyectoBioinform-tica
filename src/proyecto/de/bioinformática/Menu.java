@@ -8,56 +8,81 @@ import Estructura_de_datos.patronADN;
 import Estructura_de_datos.Nodo;
 import java.util.Enumeration;
 import Estructura_de_datos.Hashtable;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Diego Arreaza y Vyckhy Sarmiento
  */
 public class Menu extends javax.swing.JFrame {
     
+     private String cadena;
+    private Hashtable tripleta;
+    private ArbolBinarioDeBusqueda arbol;
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Menu.class.getName());
     /**
      * String con la cadena de adn de la cadena de texto
      */
-    private static String cadena;
+   
     /**
      * Hashtable que tiene de key la tripleta y de valor un dato patronADN 
      */
-    private Hashtable tripleta;
-
+   
     /**
-     * 
+     * ArbolBinarioDeBusqueda que almacena los patrones ADN, ordenados por frecuencia.
      */
-    private ArbolBinarioDeBusqueda arbol;
+  
     /**
      * Creates new form Ventana1
      * @param c cadena de ADN
      */
-    public Menu(String c) {
-        cadena = c;
+    public Menu(String cadenaADN) {
+        this.cadena = cadenaADN;
         initComponents();
-        this.CrearhashTable();
-        this.Crear_arbol_binario_de_busqueda();
-        this.setVisible(true);
+        initStructures();
     }
     
+     private void initStructures() {
+        // 1. Crear tabla hash con los tripletes
+        tripleta = new Hashtable(1000);
+        CrearhashTable();
+
+        // 2. Construir árbol binario de búsqueda
+        arbol = new ArbolBinarioDeBusqueda();
+        Crear_arbol_binario_de_busqueda();
+
+        // 3. Generar reporte de colisiones (opcional)
+        System.out.println(tripleta.generarReporteColisiones());
+    }
+    
+    /**
+     * Retorna la instancia de la tabla hash.
+     * @return La tabla hash de patrones ADN.
+     */
     public Hashtable get_tablahash(){
         return tripleta;
+    }
+    /**
+     * Retorna la instancia del árbol binario de búsqueda.
+     * @return El árbol binario de búsqueda de patrones ADN.
+     */
+    public ArbolBinarioDeBusqueda get_Arbol() {
+        return arbol;
     }
     /**
      * Metodo que se encarga de crear el hashtable con las tripletas de adn
      * Revisa si la tripleta se encuentra dentro del Hash, si se encuentraa se aumenta su frecuencia y se coloca la posicion y si no se agrega en el hastable
      */
     private void CrearhashTable(){
-        tripleta = new Hashtable();
-        for (int i = 0; i+2 < cadena.length(); i=i+3) {
+         for (int i = 0; i <= cadena.length() - 3; i += 3) {
+            String triplete = cadena.substring(i, i + 3);
             
-            String aux = cadena.substring(i, i + 3);
-            if (tripleta.contiene_la_clave(aux)) {
-                tripleta.get(aux).agregarPosicion(i);
-                tripleta.get(aux).incrementarFrecuencia();
-            }else{
-                patronADN adn= new patronADN(aux,i);
-                tripleta.put(aux,adn );
+            if (tripleta.contiene_la_clave(triplete)) {
+                patronADN existente = tripleta.get(triplete);
+                existente.incrementarFrecuencia();
+                existente.agregarPosicion(i);
+            } else {
+                tripleta.put(triplete, new patronADN(triplete, i));
             }
         }
     }
@@ -66,28 +91,14 @@ public class Menu extends javax.swing.JFrame {
      * Metodo que se encarga de crear el arbol binario de busqueda
      */
     private void Crear_arbol_binario_de_busqueda(){
-        arbol = new ArbolBinarioDeBusqueda();
-        int posicion_raiz = (int) (tripleta.size()-1)/2;
-        Nodo aux = new Nodo(tripleta.get(tripleta.get_claves()[posicion_raiz]));
-        arbol.setRoot(aux);
-        int j = 0;
-        String key = tripleta.get_claves()[j];
-        for (int i = 1; i < tripleta.size(); i++) {
-            if(key.equals(tripleta.get_claves()[posicion_raiz])!= true){
-                arbol.insertar(tripleta.get(tripleta.get_claves()[i]));
+      patronADN[] patrones = tripleta.getAllPatrones();
+        for (patronADN patron : patrones) {
+            if (patron != null) {
+                arbol.insertar(patron);
             }
-            j++;
-            key = tripleta.get_claves()[j];
         }
     }
-    
-    /**
-     * Metodo que se encarga ded retornar al arbol formado por las tripletas de la cadena por orden de frecuencia
-     * @return arbol binario de busqueda con las tripletas
-     */
-    public ArbolBinarioDeBusqueda get_Arbol(){
-        return arbol;
-    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -186,9 +197,10 @@ public class Menu extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Menu(cadena).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+            // Ejemplo de uso (en producción se cargaría desde archivo)
+            new Menu("ATGCCGTAAATGGCCTTT").setVisible(true);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
