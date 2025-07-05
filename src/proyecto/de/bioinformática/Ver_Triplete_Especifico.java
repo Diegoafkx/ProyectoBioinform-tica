@@ -125,27 +125,27 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 140, 520));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 280, 520));
 
         Frecuencia.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         Frecuencia.setText("Frecuencia:");
-        jPanel1.add(Frecuencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 220, -1));
+        jPanel1.add(Frecuencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 220, 30));
 
         frecuencia_tripleta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        frecuencia_tripleta.setText("Aqui saldra la frecuencia");
-        jPanel1.add(frecuencia_tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 370, -1));
+        frecuencia_tripleta.setText("x");
+        jPanel1.add(frecuencia_tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 130, 30));
 
         Posiciones.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         Posiciones.setText("Posiciones:");
-        jPanel1.add(Posiciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 220, -1));
+        jPanel1.add(Posiciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 220, 30));
 
         Tripleta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         Tripleta.setText("Tripleta Seleccionado:");
-        jPanel1.add(Tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 250, -1));
+        jPanel1.add(Tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 250, 30));
 
         tripleta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        tripleta.setText("Aqui saldra la tripleta");
-        jPanel1.add(tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 370, -1));
+        tripleta.setText("x");
+        jPanel1.add(tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 120, 30));
 
         jComboBox1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aqui saldran las posiciones" }));
@@ -154,7 +154,7 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 330, -1));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 330, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 680));
 

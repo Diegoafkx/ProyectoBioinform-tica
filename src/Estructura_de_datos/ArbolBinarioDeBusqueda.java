@@ -218,7 +218,9 @@ public class ArbolBinarioDeBusqueda {
     private void recorridoInOrdenRecursivo(Nodo nodo, Lista resultado) {
         if (nodo != null) {
             recorridoInOrdenRecursivo(nodo.getIzq(), resultado);
-            resultado.Insertar(nodo); 
+            Nodo aux =new Nodo(nodo.data);
+            aux.Valor = nodo.Valor;
+            resultado.Insertar(aux); 
             recorridoInOrdenRecursivo(nodo.getDer(), resultado);
         }
     }
