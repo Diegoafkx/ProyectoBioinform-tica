@@ -11,31 +11,54 @@ package Estructura_de_datos;
  */
 public class Lista {
     
-     //atributos
+     /**
+     * Referencia al primer nodo de la lista.
+     */
     private Nodo pFirst;
+      /**
+     * Cantidad de elementos en la lista.
+     */
     private int size;
     
-    //constructor
+       /**
+     * Constructor que inicializa una lista vacía.
+     */
     public Lista() {
         this.pFirst = null;
         this.size = 0;
     }
     
-
+    /**
+     * Obtiene el tamaño actual de la lista.
+     * 
+     * @return Número de elementos en la lista.
+     */
     public int getSize() {
         return size;
     }
-    
+    /**
+     * Obtiene el primer nodo de la lista.
+     * 
+     * @return Referencia al primer nodo, o null si la lista está vacía.
+     */
     public Nodo getpFirst(){
         return pFirst;
     }
     
-    //Es vacio
+    /**
+     * Verifica si la lista está vacía.
+     * 
+     * @return true si la lista no contiene elementos, false en caso contrario.
+     */
     public boolean EsVacio(){
         return this.pFirst == null;
     }
-
-    //Metodo para obtener el valor de un nodo en una determinada posición
+    /**
+     * Accede al nodo en una posición específica.
+     * 
+     * @param posicion Índice del nodo a recuperar (0-based).
+     * @return El nodo en la posición solicitada, o null si la posición es inválida.
+     */
     public Nodo AccederAlValor(int posicion){
         if(posicion>=0 && posicion<size){
             if (posicion == 0) {
@@ -51,7 +74,11 @@ public class Lista {
         return null;
     }
 
-    //inseratar al final de la lista
+        /**
+     * Inserta un nuevo nodo al final de la lista.
+     * 
+     * @param nodo Nodo a insertar en la lista.
+     */
     public void Insertar(Nodo nodo){
         if (EsVacio()){
             pFirst = nodo;
@@ -64,7 +91,12 @@ public class Lista {
         size++;
     }
 
-    // Funcion para buscar un elemento en la lista, si lo encuentra es true
+      /**
+     * Busca un elemento en la lista comparando claves.
+     * 
+     * @param referencia Clave a buscar en los nodos de la lista.
+     * @return true si encuentra un nodo con la clave especificada, false en caso contrario.
+     */
     public boolean buscar(String referencia){
         Nodo aux = pFirst;
         while(aux != null){
