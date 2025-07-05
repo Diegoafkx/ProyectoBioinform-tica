@@ -19,7 +19,9 @@ public class Colisiones extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Colisiones.class.getName());
     private static Menu menu;
     /**
-     * Creates new form Colisiones
+     * Constructor que crea una nueva ventana de reporte de colisiones.
+     * 
+     * @param m Referencia al menú principal que contiene la tabla hash a analizar
      */
     public Colisiones(Menu m) {
         menu = m;
@@ -27,6 +29,15 @@ public class Colisiones extends javax.swing.JFrame {
         mostrarReporte();
         this.setVisible(true);
     }
+    
+    /**
+     * Genera y muestra el reporte de colisiones obtenido de la tabla hash.
+     * El reporte incluye:
+     * - Capacidad total de la tabla
+     * - Número de patrones almacenados
+     * - Cubetas con colisiones
+     * - Total de colisiones registradas
+     */
      private void mostrarReporte() {
     String reporte = menu.get_tablahash().generarReporteColisiones();
     jTextArea2.setText(reporte);
@@ -91,15 +102,22 @@ public class Colisiones extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
-
+    /**
+     * Método que maneja el evento del botón Siguiente.
+     * Cierra la ventana actual y regresa al menú principal.
+     * 
+     * @param evt Evento de acción del botón
+     */
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
         // TODO add your handling code here:
         this.dispose();
         menu.back();
     }//GEN-LAST:event_NextActionPerformed
 
-    /**
-     * @param args the command line arguments
+   /**
+     * Método principal para ejecutar la ventana de forma independiente (para propósitos de prueba).
+     * 
+     * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

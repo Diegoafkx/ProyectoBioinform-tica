@@ -21,7 +21,9 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
     private DefaultListModel<String> listModel;
     private static Menu menu;
     /**
-     * Creates new form Ver_Triplete_Especifico
+     * Constructor que inicializa la ventana con los datos del menú principal.
+     * 
+     * @param m Referencia al menú principal que contiene la tabla hash con los patrones de ADN
      */
     public Ver_Triplete_Especifico(Menu m) {
         menu  = m;
@@ -35,7 +37,10 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         this.setVisible(true);
     }
 
-    
+     /**
+     * Carga todos los tripletes disponibles desde la tabla hash al JList.
+     * Formato: "Triplete | Frecuencia: X"
+     */
      private void cargarTodosLosTripletes() {
         listModel.clear();
         patronADN[] patrones = menu.get_tablahash().getAllPatrones();
@@ -46,7 +51,10 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
             }
         }
     }
-     
+    /**
+     * Muestra los detalles del triplete seleccionado (frecuencia y posiciones).
+     * Actualiza los componentes gráficos con la información del patrón seleccionado.
+     */
      private void mostrarDetalleTriplete() {
         String seleccionado = jList1.getSelectedValue();
         if (seleccionado != null) {
@@ -184,8 +192,10 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jList1ValueChanged
 
-    /**
-     * @param args the command line arguments
+       /**
+     * Método principal para ejecución independiente (uso en pruebas).
+     * 
+     * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

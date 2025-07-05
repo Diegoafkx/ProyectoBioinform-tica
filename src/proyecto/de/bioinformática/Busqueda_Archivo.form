@@ -120,9 +120,6 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="columns" type="int" value="20"/>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="rows" type="int" value="5"/>
                 <Property name="text" type="java.lang.String" value="     Bienvenido, porfavor ingrese la direccion del &#xa;                            archivo Cadena.txt&#xa;&#xa;&#x9;      ---PASOS---&#xa;Haga click en el boton buscar, saldra una nueva&#xa;ventana, tendra que dirigirse hacia la carpeta de &#xa;      la aplicacion y hacer selecionar el archivo&#xa;   Cadena.txt. Luego presione el boton siguiente&#xa;                                 para continuar."/>
               </Properties>

@@ -27,7 +27,8 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
     private FileReader Texto;
     private BufferedReader lector;
     /**
-     * Creates new form Busqueda_Archivo
+     * Constructor que inicializa la ventana de búsqueda de archivos.
+     * Configura los componentes gráficos básicos para la interfaz.
      */
     public Busqueda_Archivo() {
         initComponents();
@@ -107,7 +108,12 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Método que maneja el evento del botón Buscar.
+     * Abre un diálogo para seleccionar archivos de texto (.txt) y muestra la ruta seleccionada.
+     * 
+     * @param evt Evento de acción del botón
+     */
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -125,7 +131,14 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
             this.setVisible(true);  
         }
     }//GEN-LAST:event_BuscarActionPerformed
-
+/**
+     * Método que maneja el evento del botón Siguiente.
+     * Lee el contenido del archivo seleccionado y pasa la cadena de ADN al menú principal.
+     * 
+     * @param evt Evento de acción del botón
+     * @throws FileNotFoundException Si el archivo no existe
+     * @throws IOException Si ocurre un error al leer el archivo
+     */
     private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
         // TODO add your handling code here:
         String cadena =  "";
@@ -171,7 +184,9 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la ventana de búsqueda de archivos.
+     * 
+     * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

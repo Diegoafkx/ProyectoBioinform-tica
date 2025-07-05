@@ -18,16 +18,22 @@ import javax.swing.DefaultListModel;
     public class Lista_de_Tripletas extends javax.swing.JFrame {
     
     private static Menu menu;
-    /**
-     * Creates new form chocolate1
-     * @param m
+        /**
+     * Constructor que inicializa la ventana con los datos del menú principal.
+     * 
+     * @param m Referencia al menú principal que contiene las estructuras de datos
+     *           con la información de tripletas.
      */
     public Lista_de_Tripletas(Menu m) {
         menu = m;
         initComponents();
         this.actualizar_lista();
     }
-    
+        /**
+     * Actualiza la lista de tripletas mostrada en la interfaz gráfica.
+     * Obtiene los datos ordenados del árbol binario de búsqueda y los carga
+     * en el componente JList para visualización.
+     */
     private void actualizar_lista(){
        DefaultListModel<String> model = new DefaultListModel<>();
         Lista patrones = menu.get_Arbol().recorridoInOrden();
@@ -39,7 +45,10 @@ import javax.swing.DefaultListModel;
         }
         jList1.setModel(model);
     }
-    
+    /**
+     * Muestra las posiciones de la tripleta seleccionada en un JComboBox.
+     * Se activa al seleccionar un elemento de la lista.
+     */
     private void mostrar_posicion(){
         String seleccionado = (String) jList1.getSelectedValue();
         if (seleccionado != null) {
@@ -166,8 +175,10 @@ import javax.swing.DefaultListModel;
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    /**
-     * @param args the command line arguments
+        /**
+     * Método principal para ejecución independiente (uso en pruebas).
+     * 
+     * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
