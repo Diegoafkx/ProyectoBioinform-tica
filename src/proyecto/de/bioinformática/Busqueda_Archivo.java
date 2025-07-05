@@ -66,6 +66,8 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, -1, -1));
 
         getDireccion.setEditable(false);
+        getDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        getDireccion.setForeground(new java.awt.Color(0, 0, 0));
         getDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getDireccionActionPerformed(evt);

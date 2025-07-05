@@ -46,6 +46,15 @@
         <Component class="javax.swing.JTextField" name="Resultado">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="sansserif" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Aqui se mostrara el resultado de la busqueda"/>
           </Properties>
           <Events>
@@ -53,7 +62,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="400" width="500" height="-1"/>
+              <AbsoluteConstraints x="20" y="410" width="580" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -113,7 +122,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="310" y="330" width="-1" height="50"/>
+              <AbsoluteConstraints x="320" y="330" width="-1" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -132,9 +141,15 @@
             <Component class="javax.swing.JTextArea" name="jTextArea1">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="columns" type="int" value="20"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="&#x9;&#x9;---INFORMACION---&#xa;La cadena de ADN pusee multiples tripletas que la conforman, la tripleta puede estar &#xa;formada por: adenina (A), guanina (G), citosina (C) y timina (T), al ser una gran candena&#xa;esta puede contener multiples veces la misma tripleta en distintas posiciones.&#xa;&#x9;&#x9;&#xa;Aqui el usuario podra ver cual de Tripleta es la que mas se repite y la que menos se&#xa;repite.&#xa;&#x9;&#x9;          ---PASOS---&#xa;&#x9;El usuario selecionara cual desea buscar (Minimo o Maximo)&#xa;&#x9;     y el programa le mostrara el resultado de la busqueda."/>
+                <Property name="text" type="java.lang.String" value="&#x9;&#x9;   ---INFORMACION---&#xa;  La cadena de ADN pusee multiples tripletas que la conforman, la tripleta puede estar &#xa;formada por: adenina (A), guanina (G), citosina (C) y timina (T), al ser una gran candena&#xa;         esta puede contener multiples veces la misma tripleta en distintas posiciones.&#xa;   Aqui el usuario podra ver cual de Tripleta es la que mas se repite y la que menos se&#xa;                                                                          repite.&#xa;&#x9;&#x9;          &#xa;&#x9;&#x9;           ---PASOS---&#xa;                        El usuario selecionara cual desea buscar (Minimo o Maximo)&#xa;                             y el programa le mostrara el resultado de la busqueda."/>
               </Properties>
             </Component>
           </SubComponents>

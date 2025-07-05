@@ -62,13 +62,16 @@ public class Ver_Max_Min extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Resultado.setEditable(false);
+        Resultado.setBackground(new java.awt.Color(255, 255, 255));
+        Resultado.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        Resultado.setForeground(new java.awt.Color(0, 0, 0));
         Resultado.setText("Aqui se mostrara el resultado de la busqueda");
         Resultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResultadoActionPerformed(evt);
             }
         });
-        jPanel1.add(Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 500, -1));
+        jPanel1.add(Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 580, -1));
 
         Exit.setBackground(new java.awt.Color(255, 0, 0));
         Exit.setText("X");
@@ -99,12 +102,14 @@ public class Ver_Max_Min extends javax.swing.JFrame {
                 MaximoActionPerformed(evt);
             }
         });
-        jPanel1.add(Maximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, -1, 50));
+        jPanel1.add(Maximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, -1, 50));
 
         jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
+        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
-        jTextArea1.setText("\t\t---INFORMACION---\nLa cadena de ADN pusee multiples tripletas que la conforman, la tripleta puede estar \nformada por: adenina (A), guanina (G), citosina (C) y timina (T), al ser una gran candena\nesta puede contener multiples veces la misma tripleta en distintas posiciones.\n\t\t\nAqui el usuario podra ver cual de Tripleta es la que mas se repite y la que menos se\nrepite.\n\t\t          ---PASOS---\n\tEl usuario selecionara cual desea buscar (Minimo o Maximo)\n\t     y el programa le mostrara el resultado de la busqueda.");
+        jTextArea1.setText("\t\t   ---INFORMACION---\n  La cadena de ADN pusee multiples tripletas que la conforman, la tripleta puede estar \nformada por: adenina (A), guanina (G), citosina (C) y timina (T), al ser una gran candena\n         esta puede contener multiples veces la misma tripleta en distintas posiciones.\n   Aqui el usuario podra ver cual de Tripleta es la que mas se repite y la que menos se\n                                                                          repite.\n\t\t          \n\t\t           ---PASOS---\n                        El usuario selecionara cual desea buscar (Minimo o Maximo)\n                             y el programa le mostrara el resultado de la busqueda.");
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 500, 190));

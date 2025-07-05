@@ -72,7 +72,9 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         });
         jPanel1.add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 650, 80, -1));
 
-        jList1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jList1.setBackground(new java.awt.Color(255, 255, 255));
+        jList1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jList1.setForeground(new java.awt.Color(0, 0, 0));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
