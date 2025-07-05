@@ -4,9 +4,14 @@
  */
 package proyecto.de.bioinformática;
 
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 /**
- *
- * @author Windows 10 Pro
+ * Ventana de reporte técnico que muestra colisiones en la tabla hash.
+ * Genera estadísticas sobre el rendimiento de la estructura de datos.
+ * @author Diego Arreaza y Vyckhy Sarmiento
+ * @see Hashtable
  */
 public class Colisiones extends javax.swing.JFrame {
     
@@ -18,9 +23,17 @@ public class Colisiones extends javax.swing.JFrame {
     public Colisiones(Menu m) {
         menu = m;
         initComponents();
+        mostrarReporte();
         this.setVisible(true);
     }
-
+     private void mostrarReporte() {
+    JTextArea textArea = new JTextArea();
+    textArea.setEditable(false);
+    String reporte = menu.get_tablahash().generarReporteColisiones();
+    textArea.setText(reporte);
+    JScrollPane scroll = new JScrollPane(textArea);
+    jPanel1.add(scroll); 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +46,10 @@ public class Colisiones extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Exit = new javax.swing.JButton();
         Next = new javax.swing.JButton();
+        regresar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -51,8 +68,6 @@ public class Colisiones extends javax.swing.JFrame {
         });
         jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 70, -1));
 
-        Next.setBackground(new java.awt.Color(255, 255, 255));
-        Next.setForeground(new java.awt.Color(0, 0, 0));
         Next.setText("Siguiente");
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +75,21 @@ public class Colisiones extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
+
+        regresar.setText("Regresar");
+        regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 480, 390));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 480, 390));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
 
@@ -77,6 +107,17 @@ public class Colisiones extends javax.swing.JFrame {
         this.dispose();
         menu.back();
     }//GEN-LAST:event_NextActionPerformed
+
+    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
+        regresar = new javax.swing.JButton();
+        regresar.setText("Regresar");
+        regresar.addActionListener(e -> {
+            this.dispose();
+            menu.back();
+        });
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_regresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,5 +148,9 @@ public class Colisiones extends javax.swing.JFrame {
     private javax.swing.JButton Exit;
     private javax.swing.JButton Next;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton regresar;
     // End of variables declaration//GEN-END:variables
 }

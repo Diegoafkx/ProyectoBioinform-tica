@@ -52,9 +52,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="sansserif" size="18" style="0"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Aqui se mostrara el resultado de la busqueda"/>
           </Properties>
           <Events>
@@ -84,14 +81,8 @@
         </Component>
         <Component class="javax.swing.JButton" name="Minimo">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="sansserif" size="14" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tripleta con el minimo de frecuecia"/>
           </Properties>
@@ -106,14 +97,8 @@
         </Component>
         <Component class="javax.swing.JButton" name="Maximo">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="sansserif" size="14" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tripleta con el maximo de frecuecia"/>
           </Properties>
@@ -145,9 +130,6 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="columns" type="int" value="20"/>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="rows" type="int" value="5"/>
                 <Property name="text" type="java.lang.String" value="&#x9;&#x9;   ---INFORMACION---&#xa;  La cadena de ADN pusee multiples tripletas que la conforman, la tripleta puede estar &#xa;formada por: adenina (A), guanina (G), citosina (C) y timina (T), al ser una gran candena&#xa;         esta puede contener multiples veces la misma tripleta en distintas posiciones.&#xa;   Aqui el usuario podra ver cual de Tripleta es la que mas se repite y la que menos se&#xa;                                                                          repite.&#xa;&#x9;&#x9;          &#xa;&#x9;&#x9;           ---PASOS---&#xa;                        El usuario selecionara cual desea buscar (Minimo o Maximo)&#xa;                             y el programa le mostrara el resultado de la busqueda."/>
               </Properties>
@@ -156,12 +138,6 @@
         </Container>
         <Component class="javax.swing.JButton" name="Regresar">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Regresar"/>
           </Properties>
           <Events>

@@ -7,8 +7,11 @@ package proyecto.de.bioinformática;
 import Estructura_de_datos.ArbolBinarioDeBusqueda;
 
 /**
- *
+ * Ventana para identificar patrones de ADN con frecuencia máxima/mínima.
+ * Utiliza el árbol binario de búsqueda para obtener resultados eficientes.
  * @author Diego Arreaza y Vyckhy Sarmiento
+ * @see ArbolBinarioDeBusqueda
+ * @see patronADN
  */
 public class Ver_Max_Min extends javax.swing.JFrame {
 

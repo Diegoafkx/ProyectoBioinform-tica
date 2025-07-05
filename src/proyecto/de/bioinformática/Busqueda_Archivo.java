@@ -13,10 +13,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 /**
- *
+ * Ventana para seleccionar y cargar archivos de texto con secuencias de ADN.
+ * Proporciona una interfaz para buscar archivos y pasar la cadena de ADN al menú principal.
  * @author Diego Arreaza y Vyckhy Sarmiento
+ * @see Menu
  */
 public class Busqueda_Archivo extends javax.swing.JFrame {
     

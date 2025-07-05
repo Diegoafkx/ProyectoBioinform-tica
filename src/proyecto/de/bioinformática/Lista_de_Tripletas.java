@@ -9,8 +9,11 @@ import Estructura_de_datos.patronADN;
 import javax.swing.DefaultListModel;
 
 /**
- *
+ * Ventana que lista todos los tripletes de ADN ordenados por frecuencia.
+ * Permite visualizar las posiciones de cada patrón en la secuencia.
  * @author Diego Arreaza y Vyckhy Sarmiento
+ * @see ArbolBinarioDeBusqueda
+ * @see Lista
  */
     public class Lista_de_Tripletas extends javax.swing.JFrame {
     

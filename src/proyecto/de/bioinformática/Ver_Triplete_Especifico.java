@@ -4,14 +4,21 @@
  */
 package proyecto.de.bioinformática;
 
+import Estructura_de_datos.patronADN;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+
 /**
- *
- * @author Windows 10 Pro
+ * Ventana para visualizar detalles de un triplete de ADN específico.
+ * Muestra frecuencia y posiciones de aparición en la secuencia cargada.
+ * @author Diego Arreaza y Vyckhy Sarmiento
+ * @see Menu
+ * @see Hashtable
  */
 public class Ver_Triplete_Especifico extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Ver_Triplete_Especifico.class.getName());
-    
+    private DefaultListModel<String> listModel;
     private static Menu menu;
     /**
      * Creates new form Ver_Triplete_Especifico
@@ -19,11 +26,46 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
     public Ver_Triplete_Especifico(Menu m) {
         menu  = m;
         initComponents();
-        tripleta.setText("");
+        listModel = new DefaultListModel<>();
+        jList1.setModel(listModel);
+        cargarTodosLosTripletes();
+         tripleta.setText("Seleccione un triplete");
         frecuencia_tripleta.setText("");
+        jComboBox1.setModel(new DefaultComboBoxModel<>(new String[]{"Posiciones"}));
         this.setVisible(true);
     }
 
+    
+     private void cargarTodosLosTripletes() {
+        listModel.clear();
+        patronADN[] patrones = menu.get_tablahash().getAllPatrones();
+        
+        for (patronADN patron : patrones) {
+            if (patron != null) {
+                listModel.addElement(patron.getTriplete() + " | Frecuencia: " + patron.getFrecuencia());
+            }
+        }
+    }
+     
+     private void mostrarDetalleTriplete() {
+        String seleccionado = jList1.getSelectedValue();
+        if (seleccionado != null) {
+            String tripleteSeleccionado = seleccionado.split(" \\| ")[0];
+            patronADN patron = menu.get_tablahash().get(tripleteSeleccionado);
+            
+            if (patron != null) {
+                tripleta.setText(patron.getTriplete());
+                frecuencia_tripleta.setText(String.valueOf(patron.getFrecuencia()));
+                
+                // Cargar posiciones en el ComboBox
+                DefaultComboBoxModel<String> comboModel = new DefaultComboBoxModel<>();
+                for (int i = 0; i < patron.getPosiciones().getSize(); i++) {
+                    comboModel.addElement(String.valueOf(patron.getPosiciones().AccederAlValor(i).getData()));
+                }
+                jComboBox1.setModel(comboModel);
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,8 +104,6 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         });
         jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 70, -1));
 
-        Back.setBackground(new java.awt.Color(255, 255, 255));
-        Back.setForeground(new java.awt.Color(0, 0, 0));
         Back.setText("Regresar");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,46 +112,42 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         });
         jPanel1.add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 650, 80, -1));
 
-        jList1.setBackground(new java.awt.Color(255, 255, 255));
         jList1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jList1.setForeground(new java.awt.Color(0, 0, 0));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
         });
         jScrollPane1.setViewportView(jList1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 140, 520));
 
         Frecuencia.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Frecuencia.setForeground(new java.awt.Color(0, 0, 0));
         Frecuencia.setText("Frecuencia:");
         jPanel1.add(Frecuencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 220, -1));
 
         frecuencia_tripleta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        frecuencia_tripleta.setForeground(new java.awt.Color(0, 0, 0));
         frecuencia_tripleta.setText("Aqui saldra la frecuencia");
         jPanel1.add(frecuencia_tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 370, -1));
 
         Posiciones.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Posiciones.setForeground(new java.awt.Color(0, 0, 0));
         Posiciones.setText("Posiciones:");
         jPanel1.add(Posiciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 220, -1));
 
         Tripleta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        Tripleta.setForeground(new java.awt.Color(0, 0, 0));
         Tripleta.setText("Tripleta Seleccionado:");
         jPanel1.add(Tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 250, -1));
 
         tripleta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        tripleta.setForeground(new java.awt.Color(0, 0, 0));
         tripleta.setText("Aqui saldra la tripleta");
         jPanel1.add(tripleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 370, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aqui saldran las posiciones" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +176,13 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+         if (!evt.getValueIsAdjusting()) {
+        mostrarDetalleTriplete(); 
+    }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jList1ValueChanged
 
     /**
      * @param args the command line arguments
