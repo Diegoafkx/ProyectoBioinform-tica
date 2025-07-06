@@ -56,6 +56,7 @@ public class Colisiones extends javax.swing.JFrame {
         Next = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -74,25 +75,29 @@ public class Colisiones extends javax.swing.JFrame {
         });
         jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 70, -1));
 
+        Next.setBackground(new java.awt.Color(102, 255, 204));
+        Next.setForeground(new java.awt.Color(0, 0, 0));
         Next.setText("Siguiente");
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NextActionPerformed(evt);
             }
         });
-        jPanel1.add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
+        jPanel1.add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 450, -1, -1));
 
         jTextArea2.setEditable(false);
         jTextArea2.setBackground(new java.awt.Color(204, 204, 204));
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea2.setRows(5);
         jScrollPane3.setViewportView(jTextArea2);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 480, 380));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/colisiones.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 480));
 
         pack();
         setLocationRelativeTo(null);
@@ -144,6 +149,7 @@ public class Colisiones extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Exit;
     private javax.swing.JButton Next;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea2;

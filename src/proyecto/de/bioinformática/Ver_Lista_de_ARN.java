@@ -108,6 +108,7 @@ private void actualizarInfoAminoacido() {
         Abreviatura = new javax.swing.JLabel();
         una_letras1 = new javax.swing.JLabel();
         Exit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -223,6 +224,9 @@ private void actualizarInfoAminoacido() {
         });
         jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 70, -1));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/aminoacidos.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 680));
 
         pack();
@@ -305,6 +309,7 @@ private void actualizarInfoAminoacido() {
     private javax.swing.JLabel Tres_Letras;
     private javax.swing.JLabel Una_Letras;
     private javax.swing.JLabel aminoacido;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

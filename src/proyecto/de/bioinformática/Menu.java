@@ -114,6 +114,7 @@ public class Menu extends javax.swing.JFrame {
         Lista_Aminoacidos = new javax.swing.JButton();
         Buscar_Tripleta_Espefica = new javax.swing.JButton();
         Exit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -123,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Lista_Tripletas.setBackground(new java.awt.Color(255, 255, 255));
+        Lista_Tripletas.setBackground(new java.awt.Color(153, 102, 255));
         Lista_Tripletas.setForeground(new java.awt.Color(0, 0, 0));
         Lista_Tripletas.setText("Ver Lista de las Tripletas que forman a la cadena");
         Lista_Tripletas.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +134,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(Lista_Tripletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 530, 70));
 
-        Ver_Max_Min.setBackground(new java.awt.Color(255, 255, 255));
+        Ver_Max_Min.setBackground(new java.awt.Color(153, 102, 255));
         Ver_Max_Min.setForeground(new java.awt.Color(0, 0, 0));
         Ver_Max_Min.setText("Ver a la Tripleta con el Maximo o el Minimo de frecuencia en la cadena");
         Ver_Max_Min.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +144,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(Ver_Max_Min, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 530, 70));
 
-        Lista_Aminoacidos.setBackground(new java.awt.Color(255, 255, 255));
+        Lista_Aminoacidos.setBackground(new java.awt.Color(153, 102, 255));
         Lista_Aminoacidos.setForeground(new java.awt.Color(0, 0, 0));
         Lista_Aminoacidos.setText("Ver Lista de los Aminoacidos");
         Lista_Aminoacidos.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +154,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(Lista_Aminoacidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 530, 70));
 
-        Buscar_Tripleta_Espefica.setBackground(new java.awt.Color(255, 255, 255));
+        Buscar_Tripleta_Espefica.setBackground(new java.awt.Color(153, 102, 255));
         Buscar_Tripleta_Espefica.setForeground(new java.awt.Color(0, 0, 0));
         Buscar_Tripleta_Espefica.setText("Buscar Tripleta especifica");
         Buscar_Tripleta_Espefica.addActionListener(new java.awt.event.ActionListener() {
@@ -170,9 +171,12 @@ public class Menu extends javax.swing.JFrame {
                 ExitActionPerformed(evt);
             }
         });
-        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 70, -1));
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 70, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 610));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 600));
 
         pack();
         setLocationRelativeTo(null);
@@ -244,6 +248,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton Lista_Aminoacidos;
     private javax.swing.JButton Lista_Tripletas;
     private javax.swing.JButton Ver_Max_Min;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

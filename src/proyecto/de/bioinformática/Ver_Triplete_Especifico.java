@@ -31,7 +31,7 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         listModel = new DefaultListModel<>();
         jList1.setModel(listModel);
         cargarTodosLosTripletes();
-         tripleta.setText("Seleccione un triplete");
+        tripleta.setText("");
         frecuencia_tripleta.setText("");
         jComboBox1.setModel(new DefaultComboBoxModel<>(new String[]{"Posiciones"}));
         this.setVisible(true);
@@ -94,6 +94,7 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         Tripleta = new javax.swing.JLabel();
         tripleta = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -164,6 +165,9 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
         });
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 330, 40));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/triplete especifico.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 680));
 
         pack();
@@ -227,6 +231,7 @@ public class Ver_Triplete_Especifico extends javax.swing.JFrame {
     private javax.swing.JLabel Tripleta;
     private javax.swing.JLabel frecuencia_tripleta;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

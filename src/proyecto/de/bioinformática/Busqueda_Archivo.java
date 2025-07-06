@@ -50,6 +50,7 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         Exit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -59,6 +60,8 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Buscar.setBackground(new java.awt.Color(153, 255, 153));
+        Buscar.setForeground(new java.awt.Color(51, 0, 51));
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +79,8 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         });
         jPanel1.add(getDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 250, -1));
 
+        Siguiente.setBackground(new java.awt.Color(153, 255, 153));
+        Siguiente.setForeground(new java.awt.Color(0, 0, 0));
         Siguiente.setText("Siguiente");
         Siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,12 +101,14 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
         jTextArea1.setText("     Bienvenido, porfavor ingrese la direccion del \n                            archivo Cadena.txt\n\n\t      ---PASOS---\nHaga click en el boton buscar, saldra una nueva\nventana, tendra que dirigirse hacia la carpeta de \n      la aplicacion y hacer selecionar el archivo\n   Cadena.txt. Luego presione el boton siguiente\n                                 para continuar.");
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 290, 170));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/busca.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
@@ -215,6 +222,7 @@ public class Busqueda_Archivo extends javax.swing.JFrame {
     private javax.swing.JButton Exit;
     private javax.swing.JButton Siguiente;
     private javax.swing.JTextField getDireccion;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

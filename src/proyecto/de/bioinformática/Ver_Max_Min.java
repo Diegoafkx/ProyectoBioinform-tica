@@ -55,6 +55,7 @@ public class Ver_Max_Min extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         Regresar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -67,7 +68,6 @@ public class Ver_Max_Min extends javax.swing.JFrame {
         Resultado.setEditable(false);
         Resultado.setBackground(new java.awt.Color(255, 255, 255));
         Resultado.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        Resultado.setForeground(new java.awt.Color(0, 0, 0));
         Resultado.setText("Aqui se mostrara el resultado de la busqueda");
         Resultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,9 +85,7 @@ public class Ver_Max_Min extends javax.swing.JFrame {
         });
         jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 60, -1));
 
-        Minimo.setBackground(new java.awt.Color(255, 255, 255));
         Minimo.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        Minimo.setForeground(new java.awt.Color(0, 0, 0));
         Minimo.setText("Tripleta con el minimo de frecuecia");
         Minimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,9 +94,7 @@ public class Ver_Max_Min extends javax.swing.JFrame {
         });
         jPanel1.add(Minimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, 50));
 
-        Maximo.setBackground(new java.awt.Color(255, 255, 255));
         Maximo.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        Maximo.setForeground(new java.awt.Color(0, 0, 0));
         Maximo.setText("Tripleta con el maximo de frecuecia");
         Maximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,15 +106,12 @@ public class Ver_Max_Min extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
         jTextArea1.setText("\t\t   ---INFORMACION---\n  La cadena de ADN pusee multiples tripletas que la conforman, la tripleta puede estar \nformada por: adenina (A), guanina (G), citosina (C) y timina (T), al ser una gran candena\n         esta puede contener multiples veces la misma tripleta en distintas posiciones.\n   Aqui el usuario podra ver cual de Tripleta es la que mas se repite y la que menos se\n                                                                          repite.\n\t\t          \n\t\t           ---PASOS---\n                        El usuario selecionara cual desea buscar (Minimo o Maximo)\n                             y el programa le mostrara el resultado de la busqueda.");
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 500, 190));
 
-        Regresar.setBackground(new java.awt.Color(255, 255, 255));
-        Regresar.setForeground(new java.awt.Color(0, 0, 0));
         Regresar.setText("Regresar");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +119,9 @@ public class Ver_Max_Min extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 458, -1, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimo_max.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 490));
 
@@ -208,6 +204,7 @@ public class Ver_Max_Min extends javax.swing.JFrame {
     private javax.swing.JButton Minimo;
     private javax.swing.JButton Regresar;
     private javax.swing.JTextField Resultado;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

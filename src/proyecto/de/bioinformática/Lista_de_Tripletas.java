@@ -80,6 +80,7 @@ import javax.swing.DefaultListModel;
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -99,8 +100,8 @@ import javax.swing.DefaultListModel;
         });
         jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 70, -1));
 
-        Back.setBackground(new java.awt.Color(255, 255, 255));
-        Back.setForeground(new java.awt.Color(0, 0, 0));
+        Back.setBackground(new java.awt.Color(51, 51, 51));
+        Back.setForeground(new java.awt.Color(255, 255, 255));
         Back.setText("Regresar");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,9 +110,8 @@ import javax.swing.DefaultListModel;
         });
         jPanel1.add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 650, 80, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setBackground(new java.awt.Color(51, 51, 51));
         jComboBox1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Posiciones" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,19 +120,15 @@ import javax.swing.DefaultListModel;
         });
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 220, -1));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
         jTextArea1.setText("\t---INFORMACION---\n  Aqui el usuario podra observar la frecuencia y la \n     posición que abarca todas las tripletas en la \n\t          cadena\n\n\t      ---PASOS---\n   Para ver las posiciones de la tripleta el usuario \ntendra que selecionar el que desea observar de la\n       lista, ya apreceran todas las posicones \n");
         jScrollPane2.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 340, 210));
 
-        jList1.setBackground(new java.awt.Color(255, 255, 255));
         jList1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jList1.setForeground(new java.awt.Color(0, 0, 0));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "tripleta | Frecuencia | ", "tripleta2 | Frecuencia | ", "tripleta3 | Frecuencia |" };
             public int getSize() { return strings.length; }
@@ -146,6 +142,9 @@ import javax.swing.DefaultListModel;
         jScrollPane1.setViewportView(jList1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 280, 440));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lista_tripletas.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -217,6 +216,7 @@ import javax.swing.DefaultListModel;
     private javax.swing.JButton Back;
     private javax.swing.JButton Exit;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
