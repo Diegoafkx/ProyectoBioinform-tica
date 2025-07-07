@@ -4,9 +4,6 @@
  */
 package proyecto.de.bioinformática;
 
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 /**
  * Ventana de reporte técnico que muestra colisiones en la tabla hash.

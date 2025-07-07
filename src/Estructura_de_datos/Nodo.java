@@ -11,11 +11,34 @@ package Estructura_de_datos;
  */
 public class Nodo <T> {
 
+    /**
+     * Nodo que le sigue al nodo actual
+     */
     protected Nodo pNext;
+
+    /**
+     *dato que contiene el nodo
+     */
     protected T data;
+
+    /**
+     *hijo izquierdo del nodo
+     */
     protected Nodo izq;
+
+    /**
+     *hijo derecho del nodo
+     */
     protected Nodo der;
+
+    /**
+     *Nodo con el valor del hashtable
+     */
     protected Nodo Valor;
+
+    /**
+     *  Clave qqpara hacer al valor del hashtable
+     */
     protected String clave;
     
     /**

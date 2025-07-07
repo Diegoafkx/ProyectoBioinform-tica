@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto.de.bioinformática;
-import Estructura_de_datos.Lista;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
